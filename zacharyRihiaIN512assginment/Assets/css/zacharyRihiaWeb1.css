@@ -1,0 +1,11 @@
+body{
+    background-color: lightcoral;
+}
+
+.header{
+    margin: 100px;
+    background: hotpink;
+    border:1px solid black;
+    color:lightseagreen;
+
+}
