@@ -9,3 +9,13 @@ body{
     color:lightseagreen;
 
 }
+.nav-list ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+.logo{
+    display: flex;
+    align-self: flex-start;
+}
