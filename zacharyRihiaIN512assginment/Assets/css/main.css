@@ -1,13 +1,9 @@
 body{
-    background-color: lightcoral;
+    background-color: #F2F2F2;
+    margin: 0;
 }
-.nav-list ul{
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-}
-.logo{
-    display: flex;
-    align-self: flex-start;
+
+.navbar {
+    background-color: white;
+    padding: 1em;
 }
