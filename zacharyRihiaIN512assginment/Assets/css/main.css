@@ -1,14 +1,6 @@
 body{
     background-color: lightcoral;
 }
-
-.header{
-    margin: 100px;
-    background: hotpink;
-    border:1px solid black;
-    color:lightseagreen;
-
-}
 .nav-list ul{
     padding: 0;
     list-style: none;
