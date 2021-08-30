@@ -8,6 +8,27 @@ body{
     padding: 1em;
 }
 
+.logo{
+    text-decoration: none;
+    color: black;
+}
+
+ul.navlist{
+    flex: 1;
+    text-align: right;
+}
+
+ul.navlist li{
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    padding: 0.1em;
+}
+
+ul.navlist li a{
+    text-decoration: none;
+    color: black;
+}
 
 section{
     padding: 2em;
