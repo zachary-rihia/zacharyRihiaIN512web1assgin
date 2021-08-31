@@ -1,4 +1,4 @@
-body{
+/*body{
     background-color: #F2F2F2;
     margin: 0;
 }
@@ -39,7 +39,7 @@ section{
     text-transform: uppercase;
 }
 
-/*.sec-2-img-wrap1{
+.sec-2-img-wrap1{
     width: 75px;
     height: 49px;
     position: absolute;
