@@ -4,8 +4,11 @@ body{
 }
 
 .navbar{
-    background-color: white;
     padding: 1em;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
 .logo{
@@ -20,6 +23,27 @@ nav{
 .container{
     display: flex;
     place-content: space-between;
+    align-items: center;
+}
+
+.menu{
+    position: fixed;
+    top: 100%;
+    left:  -25%;
+    width: 150%;
+    height: 100vh;
+    background: white;
+    z-index: 2;
+    transition: top 1s, border-radius 1s ease-out;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+}
+
+.menu ul{
+    opacity: 0;
+    transition: opacity 2s;
+    font-size: large;
+
 }
 
 .mobile-menu{
@@ -41,12 +65,26 @@ section{
 .hero{
     text-align: center;
     position: relative;
+    padding: 0;
+    padding-top: 60px;
+}
+
+.title{
+    position: absolute;
+    width: 100%;
 }
 
 h1{
     font-size: 2.5em;
     line-height: 1.3em;
     margin-top: .2em;
+}
+
+.sec-2-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 
