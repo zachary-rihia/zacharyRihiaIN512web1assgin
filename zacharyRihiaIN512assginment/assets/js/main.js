@@ -12,9 +12,30 @@ window.addEventListener('load', event => {
         document.querySelector(".menu ul").style.opacity = 0;
     })
 
-    document.querySelector(".sec-2-img").addEventListener("scroll",() => {
-        document.querySelector(".sec-2-img").style.visibility = "visible";
-        document.querySelector(".sec-2-img").style.opacity = 1;
+    let lastScrollPosition = 0;
+    let ticking = false;
+
+    function callimg2(scrollPos){
+
+        document.querySelectorAll(".sec-2-img").forEach(img => {
+            img.style.top = 0;
+            img.style.opacity = 1;
+            img.style.borderRadius = 0;
+        })
+        
+    }
+
+    document.addEventListener("scroll", function(e){
+        lastScrollPosition = window.screenY;
+
+        if (!ticking){
+            window.requestAnimationFrame(function(){
+                callimg2(lastScrollPosition);
+                ticking = false;
+            })
+
+            ticking = true;
+        }
     })
 
 });
