@@ -126,3 +126,16 @@ h1{
     font-size: 1em;
     text-align: center;
 }
+
+.sec-3-img{
+    display: flex;
+    overflow: hidden;
+    width: 50%;
+    height: 50%;
+}
+
+.sec-3-img img{
+    width: 50%;
+    height: 50%;
+    transition: margin-left 0.4s;
+}
