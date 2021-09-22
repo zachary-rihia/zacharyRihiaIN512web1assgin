@@ -45,10 +45,6 @@ window.addEventListener('load', event => {
         console.log(img.getBoundingClientRect());
         currleft -= 100;
         img.style.marginLeft = currleft + "%";
-
-        if(".sec-3-img img:last-of-type"){
-            let img = document.querySelector(".sec-3-img img:first-of-type");
-        }
     })
 
 });
