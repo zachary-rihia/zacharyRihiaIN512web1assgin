@@ -1,3 +1,5 @@
+const e = require("express");
+
 window.addEventListener('load', event => {
 
     document.querySelector("#mobile-cta").addEventListener("click", () => {
@@ -40,11 +42,17 @@ window.addEventListener('load', event => {
 
     let currleft = 0;
 
+    var imgslide = document.querySelector(".sec-3-img")
+    
     document.querySelector(".charas-arrow-right").addEventListener("click", () => {
-        let img = document.querySelector(".sec-3-img img:first-of-type");
-        console.log(img.getBoundingClientRect());
-        currleft -= 100;
-        img.style.marginLeft = currleft + "%";
+        for(i = 0; i < imgslide.length; i++){
+            if(e.target == imgslide[i]){
+                console.log(img.getBoundingClientRect());
+                currleft -= 100;
+                img.style.marginLeft = currleft + "%";
+            }
+        }
+        
     })
 
 });
