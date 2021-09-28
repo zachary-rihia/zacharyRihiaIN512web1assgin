@@ -13,5 +13,5 @@ app.get('/', (req, res) => res.render('index'))
 app.get('/about', (req, res) => res.send('About Page'))
 app.get('/user', (req, res) => res.send('User Page'))
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
 
