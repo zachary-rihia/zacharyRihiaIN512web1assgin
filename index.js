@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const path = require("path")
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 app.set("view engine","ejs")
 app.set('views', path.join(__dirname, 'views'))
