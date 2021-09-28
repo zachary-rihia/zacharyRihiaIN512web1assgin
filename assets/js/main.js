@@ -52,7 +52,16 @@ window.addEventListener('load', event => {
                 img.style.marginLeft = currleft + "%";
             }
         }
-        
+    })
+
+    document.querySelector(".charas-arrow-left").addEventListener("click", () => {
+        for(i = imgslide.length; i > 0; i--){
+            if(e.target == imgslide[i]){
+                console.log(img.getBouSndingClientRect());
+                currleft -= 100;
+                img.style.marginLeft = currleft + "%";
+            }
+        }
     })
 
 });
