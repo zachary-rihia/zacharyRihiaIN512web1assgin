@@ -48,12 +48,12 @@ window.addEventListener('load', event => {
         img.style.marginLeft = currleft + "%";
     })
 
-    document.querySelector(".charas-arrow-right").addEventListener("click", () => {
+    document.querySelector(".charas-arrow-left").addEventListener("click", () => {
         let img = document.querySelector(".sec-3-img img:first-of-type");
         console.log(img.getBoundingClientRect());
         currleft += 100;
         img.style.marginLeft = currleft + "%";
-        
+
     })
 
 });
