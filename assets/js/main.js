@@ -53,6 +53,7 @@ window.addEventListener('load', event => {
         console.log(img.getBoundingClientRect());
         currleft += 100;
         img.style.marginLeft = currleft + "%";
+        
     })
 
 });
