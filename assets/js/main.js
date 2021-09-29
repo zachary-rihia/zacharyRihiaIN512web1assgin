@@ -1,4 +1,3 @@
-const e = require("express");
 
 window.addEventListener('load', event => {
 
@@ -39,29 +38,21 @@ window.addEventListener('load', event => {
             ticking = true;
         }
     })
-
+    
     let currleft = 0;
 
-    var imgslide = document.querySelector(".sec-3-img")
-    
     document.querySelector(".charas-arrow-right").addEventListener("click", () => {
-        for(i = 0; i < imgslide.length; i++){
-            if(e.target == imgslide[i]){
-                console.log(img.getBoundingClientRect());
-                currleft -= 100;
-                img.style.marginLeft = currleft + "%";
-            }
-        }
+        let img = document.querySelector(".sec-3-img img:first-of-type");
+        console.log(img.getBoundingClientRect());
+        currleft -= 100;
+        img.style.marginLeft = currleft + "%";
     })
 
-    document.querySelector(".charas-arrow-left").addEventListener("click", () => {
-        for(i = imgslide.length; i > 0; i--){
-            if(e.target == imgslide[i]){
-                console.log(img.getBouSndingClientRect());
-                currleft -= 100;
-                img.style.marginLeft = currleft + "%";
-            }
-        }
+    document.querySelector(".charas-arrow-right").addEventListener("click", () => {
+        let img = document.querySelector(".sec-3-img img:first-of-type");
+        console.log(img.getBoundingClientRect());
+        currleft += 100;
+        img.style.marginLeft = currleft + "%";
     })
 
 });
