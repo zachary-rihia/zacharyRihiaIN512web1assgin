@@ -3,6 +3,8 @@
 dowload the heroku CLI
 https://devcenter.heroku.com/articles/heroku-cli
 node install
-node install express --save
+npm install express --save
+npm install -g heroku
+heroku login
 
 https://limitless-coast-41868.herokuapp.com/
