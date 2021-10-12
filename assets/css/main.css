@@ -139,3 +139,20 @@ h1{
     height: 100%;
     transition: margin-left 0.4s;
 }
+
+#promote{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: auto;
+    width: 50%;
+}
+
+.makers-list{
+    align-items: flex-end;
+}
+
+.number{
+    font-size: 7em;
+}

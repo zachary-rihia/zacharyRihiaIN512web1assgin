@@ -62,4 +62,55 @@ window.addEventListener('load', event => {
 
     })
 
+    //Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
+
+    const API_KEY = "563492ad6f91700001000001b85c341905654b2a900ab901fecb6997";
+
+    const imageUrl = "https://api.pexels.com/v1/photos/2014422";
+
+    //async function getPictures(pageNum){
+    //    const response = await fetch("https://api.pexels.com/v1/curated?page=$%7BpageNum%7D%22,%7B
+    //        headers:{
+    //            Authorization: API_KEY
+    //        }
+    //    });
+    //    const data = await response.json();
+    //    console.log(data);
+    //
+    //    displayImage(data)
+    //}
+
+
+    async function getPictures(){
+        const response = await fetch(imageUrl, {
+            headers: {
+                Authorization: API_KEY
+            }
+        });
+        const data = await response.json();
+        console.log(data);
+
+        let imgurl = data.blob
+        console.log(imgurl)
+
+        document.getElementById(".testimg").src = imageUrl;
+    }
+
+    //function displayImage(data){
+    //    data.photos.forEach((image => {
+    //        document.querySelector(".sec-3-img").innerHTML = data
+    //    }))
+    //}
+
+    getPictures();
+
+    //fetch(imageUrl)
+    //                         vvvv
+    //.then(response => response.blob())
+     //.then(imageBlob => {
+        // Then create a local URL for that image and print it 
+        //const imageObjectURL = URL.createObjectURL(imageBlob);
+        //console.log(imageObjectURL);
+    //});
+
 });
