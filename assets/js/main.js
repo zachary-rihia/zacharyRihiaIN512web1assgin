@@ -90,10 +90,10 @@ window.addEventListener('load', event => {
         const data = await response.json();
         console.log(data);
 
-        let imgurl = data.blob
-        console.log(imgurl)
+        let imgurl = data.url;
+        console.log(imgurl);
 
-        document.getElementById(".testimg").src = imageUrl;
+        document.querySelector(".sec-3-img").src = imageUrl;
     }
 
     //function displayImage(data){
