@@ -201,10 +201,11 @@ window.addEventListener('load', event => {
     }
 
     penPictures();
+    guraPictures();
     orcPictures();
     owlPictures();
     tigPictures();
     turtPictures();
-    guraPictures();
+    
 
 });
