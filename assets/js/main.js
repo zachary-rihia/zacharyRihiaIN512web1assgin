@@ -45,28 +45,50 @@ window.addEventListener('load', event => {
     
     let currleft = 0;
 
-    //flicks through the image gallery via the next button
-    document.querySelector(".charas-arrow-right").addEventListener("click", () => {
-        let img = document.querySelector(".sec-3-img img:first-of-type");
-        console.log(img.getBoundingClientRect());
+    //flicks through the section 3 image gallery via the next button
+    document.querySelector(".right").addEventListener("click", () => {
+        let mimg = document.querySelector(".mainpic img:first-of-type");
+        let limg = document.querySelector(".leftpic img:first-of-type");
+        let rtimg = document.querySelector(".righttop img:first-of-type");
+        let rmimg = document.querySelector(".rightmid img:first-of-type");
+        let rbimg = document.querySelector(".rightbot img:first-of-type");
         currleft -= 100;
-        img.style.marginLeft = currleft + "%";
+        mimg.style.marginLeft = currleft + "%";
+        limg.style.marginLeft = currleft + "%";
+        rtimg.style.marginLeft = currleft + "%";
+        rmimg.style.marginLeft = currleft + "%";
+        rbimg.style.marginLeft = currleft + "%";
     })
 
-    //flicks through the image gallery via the prev button
-    document.querySelector(".charas-arrow-left").addEventListener("click", () => {
-        let img = document.querySelector(".sec-3-img img:first-of-type");
-        console.log(img.getBoundingClientRect());
+    //flicks through the section 3 image gallery via the prev button
+    document.querySelector(".left").addEventListener("click", () => {
+        let mimg = document.querySelector(".mainpic img:first-of-type");
+        let limg = document.querySelector(".leftpic img:first-of-type");
+        let rtimg = document.querySelector(".righttop img:first-of-type");
+        let rmimg = document.querySelector(".rightmid img:first-of-type");
+        let rbimg = document.querySelector(".rightbot img:first-of-type");
         currleft += 100;
-        img.style.marginLeft = currleft + "%";
+        mimg.style.marginLeft = currleft + "%";
+        limg.style.marginLeft = currleft + "%";
+        rtimg.style.marginLeft = currleft + "%";
+        rmimg.style.marginLeft = currleft + "%";
+        rbimg.style.marginLeft = currleft + "%";
 
     })
 
     //Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
-
     const API_KEY = "563492ad6f91700001000001b85c341905654b2a900ab901fecb6997";
 
-    const imageUrl = "https://api.pexels.com/v1/photos/2014422";
+    //search query for the pexels api
+    const imageUrl = "https://api.pexels.com/v1/search?query=";
+
+    //the items that are used for the search qurey
+    const penguin = "Emperor%20penguin&per_page=5";
+    const orca = "killer%20whale&per_page=5"
+    const owl = "barn%20owl&per_page=5"
+    const tiger = "tiger&per_page=5"
+    const turtle = "sea%20turtle&per_page=5"
+    const shark = "whale%20shark&per_page=5"
 
     //async function getPictures(pageNum){
     //    const response = await fetch("https://api.pexels.com/v1/curated?page=$%7BpageNum%7D%22,%7B
@@ -80,37 +102,109 @@ window.addEventListener('load', event => {
     //    displayImage(data)
     //}
 
+    let pen = document.querySelectorAll(".pen");
+    let gura = document.querySelectorAll(".shark");
+    let dolph = document.querySelectorAll(".orca");
+    let barn = document.querySelectorAll(".owl");
+    let tigger = document.querySelectorAll(".tiger");
+    let seaturt = document.querySelectorAll(".turtle");
 
-    async function getPictures(){
-        const response = await fetch(imageUrl, {
+    async function penPictures(){
+        let response = await fetch(imageUrl + penguin, {
             headers: {
                 Authorization: API_KEY
             }
         });
-        const data = await response.json();
+        let data = await response.json();
         console.log(data);
 
-        let imgurl = data.url;
-        console.log(imgurl);
+        let imgurl = data.photos;
 
-        document.querySelector(".sec-3-img").src = imageUrl;
+        pen.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+        });
     }
 
-    //function displayImage(data){
-    //    data.photos.forEach((image => {
-    //        document.querySelector(".sec-3-img").innerHTML = data
-    //    }))
-    //}
+    async function orcPictures(){
+        let response = await fetch(imageUrl + orca, {
+            headers: {
+                Authorization: API_KEY
+            }
+        });
+        let data = await response.json();
 
-    getPictures();
+        let imgurl = data.photos;
 
-    //fetch(imageUrl)
-    //                         vvvv
-    //.then(response => response.blob())
-     //.then(imageBlob => {
-        // Then create a local URL for that image and print it 
-        //const imageObjectURL = URL.createObjectURL(imageBlob);
-        //console.log(imageObjectURL);
-    //});
+        dolph.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+        });
+    }
+
+    async function owlPictures(){
+        let response = await fetch(imageUrl + owl, {
+            headers: {
+                Authorization: API_KEY
+            }
+        });
+        let data = await response.json();
+
+        let imgurl = data.photos;
+
+        barn.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+        });
+    }
+
+    async function tigPictures(){
+        let response = await fetch(imageUrl + tiger, {
+            headers: {
+                Authorization: API_KEY
+            }
+        });
+        let data = await response.json();
+
+        let imgurl = data.photos;
+
+        tigger.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+        });
+    }
+
+    async function turtPictures(){
+        let response = await fetch(imageUrl + turtle, {
+            headers: {
+                Authorization: API_KEY
+            }
+        });
+        let data = await response.json();
+
+        let imgurl = data.photos;
+
+        seaturt.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+        });
+    }
+
+    async function guraPictures(){
+        let response = await fetch(imageUrl + shark, {
+            headers: {
+                Authorization: API_KEY
+            }
+        });
+        let data = await response.json();
+    
+        let imgurl = data.photos;
+
+        gura.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+        });
+    }
+
+    penPictures();
+    orcPictures();
+    owlPictures();
+    tigPictures();
+    turtPictures();
+    guraPictures();
 
 });
