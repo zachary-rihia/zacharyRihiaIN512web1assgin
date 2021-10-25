@@ -35,13 +35,28 @@ window.addEventListener('load', event => {
 
         if (!ticking){
             window.requestAnimationFrame(function(){
-                callimg2(lastScrollPosition);
+                callimg2(lastScrollPosition);    
                 ticking = false;
             })
 
             ticking = true;
         }
     })
+
+    //anime.timeline({loop: true})
+    //            .add({
+    //                targets: ".letter",
+    //                opacity: [0,1],
+    //                easing: "easeInOutQuad",
+    //                duration: 1000,
+    //                delay: (el, i) => 150(i+1)
+    //            }).add({
+    //                targets: ".letter",
+    //                opacity: 0,
+    //                duration: 500,
+    //                easing: "easeOutExpo",
+    //                delay: 500
+    //            })
     
     let currleft = 0;
 
