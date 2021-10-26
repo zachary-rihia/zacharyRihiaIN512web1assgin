@@ -1,20 +1,22 @@
-
 window.addEventListener('load', event => {
+
+    let menu =  document.querySelector(".menu");
+    let menuul = document.querySelector(".menu ul");
 
     //mobile menu system the comes up from the bottom of the screen
     document.querySelector("#mobile-cta").addEventListener("click", () => {
-        document.querySelector(".menu").style.top = 0;
-        document.querySelector(".menu ul").style.opacity = 1;
+        menu.style.top = 0;
+        menuul.style.opacity = 1;
         document.querySelector(".contacts").style.opacity = 1;
-        document.querySelector(".menu").style.borderTopRightRadius = 0;
-        document.querySelector(".menu").style.borderTopLeftRadius = 0;
+        menu.style.borderTopRightRadius = 0;
+        menu.style.borderTopLeftRadius = 0;
         document.querySelector(".footer-nav-bar").style.zIndex = 4;
     })
 
     //the mobile exit button that makes the menu go back from where it came
     document.querySelector("#mobile-exit").addEventListener("click", () => {
-        document.querySelector(".menu").style.top = "100%";
-        document.querySelector(".menu ul").style.opacity = 0;
+        menu.style.top = "100%";
+        menuul.style.opacity = 0;
     })
 
     let lastScrollPosition = 0;
@@ -44,31 +46,27 @@ window.addEventListener('load', event => {
             ticking = true;
         }
     })
-
-    //anime.timeline({loop: true})
-    //            .add({
-    //                targets: ".letter",
-    //                opacity: [0,1],
-    //                easing: "easeInOutQuad",
-    //                duration: 1000,
-    //                delay: (el, i) => 150(i+1)
-    //            }).add({
-    //                targets: ".letter",
-    //                opacity: 0,
-    //                duration: 500,
-    //                easing: "easeOutExpo",
-    //                delay: 500
-    //            })
     
     let currleft = 0;
 
+    let mimg = document.querySelector(".mainpic img:first-of-type");
+    let limg = document.querySelector(".leftpic img:first-of-type");
+    let rtimg = document.querySelector(".righttop img:first-of-type");
+    let rmimg = document.querySelector(".rightmid img:first-of-type");
+    let rbimg = document.querySelector(".rightbot img:first-of-type");
+
+    let science = document.querySelector(".scientific-name-block li");
+    let civi = document.querySelector(".civi-name li");
+    let animalinfo = document.querySelector(".animal-fact li");
+    let locationname = document.querySelector(".location-name li");
+
+    // let scienceArray = Array.from(science);
+    // let civiArray = Array.from(civi);
+    // let animalinfoArray = Array.from(animalinfo);
+    // let locationnameArray = Array.from(locationname);
+
     //flicks through the section 3 image gallery via the next button
     document.querySelector(".right").addEventListener("click", () => {
-        let mimg = document.querySelector(".mainpic img:first-of-type");
-        let limg = document.querySelector(".leftpic img:first-of-type");
-        let rtimg = document.querySelector(".righttop img:first-of-type");
-        let rmimg = document.querySelector(".rightmid img:first-of-type");
-        let rbimg = document.querySelector(".rightbot img:first-of-type");
         currleft -= 100;
         mimg.style.marginLeft = currleft + "%";
         limg.style.marginLeft = currleft + "%";
@@ -79,11 +77,6 @@ window.addEventListener('load', event => {
 
     //flicks through the section 3 image gallery via the prev button
     document.querySelector(".left").addEventListener("click", () => {
-        let mimg = document.querySelector(".mainpic img:first-of-type");
-        let limg = document.querySelector(".leftpic img:first-of-type");
-        let rtimg = document.querySelector(".righttop img:first-of-type");
-        let rmimg = document.querySelector(".rightmid img:first-of-type");
-        let rbimg = document.querySelector(".rightbot img:first-of-type");
         currleft += 100;
         mimg.style.marginLeft = currleft + "%";
         limg.style.marginLeft = currleft + "%";
@@ -223,6 +216,40 @@ window.addEventListener('load', event => {
     owlPictures();
     tigPictures();
     turtPictures();
+
+    (async() => {
+        let response = await fetch(imageUrl + "wildlife&per_page=5", {
+            headers: {
+                Authorization: API_KEY
+            }
+        });
+        let data = await response.json();
+
+        let imgurl = data.photos;
+        let gallery = document.querySelectorAll(".randomgallery")
+
+        gallery.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+        });
+
+    })();
     
+    // function circularText(txt, radius, classIndex){
+    //     txt = txt.split(""),
+    //     classIndex = document.querySelector(".roundText")
+    //     [classIndex];
+
+    //     let deg = 360 / txt.length,
+    //     origin = 0;
+
+    //     txt.forEach((ea) => {
+    //         ea = `<h2 style="height:${radius}px; position:absolute;transform:rotate(${origin}deg);
+    //         transform-origin:0 100%">${ea}</h2>`
+    //         classIndex.innerHTML += ea;
+    //         origin += deg;
+    //     });
+    // }
+
+    // circularText();
 
 });

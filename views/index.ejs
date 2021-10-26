@@ -33,7 +33,7 @@
                 <div id="vn-op" class="video-vn-op">
                     <div class="video-container">
                         <button class="video play-button">WATCH THE REEL</button>
-                        <button class="video close-button">CLOSE</button>
+                        <!-- <button class="video close-button">CLOSE</button> -->
                     </div>
                     <video autoplay loop src="video/Pexels Videos 2716.mp4" frameborder="0" style="width: 100%; aspect-ratio: 16/9;" muted="true"></video>
                 </div>
@@ -100,36 +100,25 @@
                     <div class="mainpic">
                         <%- include ("partials/li.ejs") %>
                     </div>
+
                     <div class="leftpic">
                         <%- include ("partials/li.ejs") %>
                     </div>
+
                     <div class="righttop">
-                        <img src="" alt="" class="pen">
-                        <img src="" alt="" class="shark">
-                        <img src="" alt="" class="orca">
-                        <img src="" alt="" class="owl">
-                        <img src="" alt="" class="tiger">
-                        <img src="" alt="" class="turtle">
+                        <%- include ("partials/li.ejs") %>
                     </div>
+
                     <div class="rightmid">
-                        <img src="" alt="" class="pen">
-                        <img src="" alt="" class="shark">
-                        <img src="" alt="" class="orca">
-                        <img src="" alt="" class="owl">
-                        <img src="" alt="" class="tiger">
-                        <img src="" alt="" class="turtle">
+                        <%- include ("partials/li.ejs") %>
                     </div>
+
                     <div class="rightbot">
-                        <img src="" alt="" class="pen">
-                        <img src="" alt="" class="shark">
-                        <img src="" alt="" class="orca">
-                        <img src="" alt="" class="owl">
-                        <img src="" alt="" class="tiger">
-                        <img src="" alt="" class="turtle">
+                        <%- include ("partials/li.ejs") %>
                     </div>
                 </div>
         
-                <!--<div class="scientific-name">
+                <div class="scientific-name">
                     <h2 class="scientific-name-block">
                         <ul>
                             <li>Aptenodytes forsteri</li>
@@ -182,7 +171,7 @@
                             <li>Atlantic, Pacific, and Indian Oceans</li>
                         </ul>  
                     </h3>
-                </div>-->
+                </div>
                 
                 <div class="arrowContainer">
                     <button class="arrow left">
@@ -213,13 +202,26 @@
         </section>
 
         <section class="gallery">
-            <div class="container--gall"></div>
+            <div class="container-gall">
+                <ul>
+                    <img src="" alt="" class="randomgallery">
+                    <img src="" alt="" class="randomgallery">
+                    <img src="" alt="" class="randomgallery">
+                    <img src="" alt="" class="randomgallery">
+                    <img src="" alt="" class="randomgallery">
+                </ul>
+            </div>
         </section>
 
         <section class="footer">
-            <div class="container--footer">
-                <h2 class="footer-text-main">
-                    elit ut aliquam <span class="roundText">sit amet luctus</span> venenatis lectus
+            <div class="containerfooter">
+                <h2 class="footertext">
+                    elit ut <span class="bluecolour">aliquam</span> 
+                    <span class="s1">s</span><span class="i">i</span><span class="t1">t</span>
+                    <span class="a">a</span> <span class="m">m</span><span class="e">e</span><span class="t2">t</span>
+                    <span class="l">l</span> <span class="u1">u</span><span class="c">c</span>
+                    <span class="t">t</span><span class="u2">u</span><span class="s2">s</span> 
+                    venenatis lectus
                 </h2>
 
                 <nav class="footer-nav">

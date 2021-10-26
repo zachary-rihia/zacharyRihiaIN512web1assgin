@@ -59,6 +59,7 @@ nav{
     font-size: 500%;
     margin-top: auto;
     margin-bottom: auto;
+    color: black;
     
 }
 
@@ -66,8 +67,8 @@ nav{
     opacity: 0;
     transition: opacity 2s;
     font-size: 120%;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 0;
+    margin-bottom: 15em;
 }
 
 a:link{
@@ -75,10 +76,6 @@ a:link{
 }
 
 a:visited{
-    color: black;
-}
-
-a::before{
     color: black;
 }
 
@@ -102,6 +99,8 @@ section{
     display: flex;
     flex-direction: column;
     position: absolute;
+    right: 6%;
+    bottom: 36%;
 }
 
 .video{
@@ -272,10 +271,11 @@ h1{
 
 .makers{
     display: flex;
+    flex-direction: column;
 }
 
 .makers-list li{
-    justify-self: flex-end;
+    right: 50%
 }
 
 .number{
@@ -285,3 +285,28 @@ h1{
 .heading3-title{
     justify-self: end;
 }
+
+.bluecolour{
+    color: blue;
+}
+
+.s1{
+    transform: translate(20px, 85px) rotate(-30deg);
+}
+
+.i{
+    transform: translate(13px, 60px) rotate(-25deg);
+}
+
+.container-gall{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 30%;
+}
+
+.randomgallery{
+    width: 50%;
+    flex-direction: row;
+}
+
