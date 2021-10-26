@@ -93,24 +93,12 @@ window.addEventListener('load', event => {
     const imageUrl = "https://api.pexels.com/v1/search?query=";
 
     //the items that are used for the search qurey
-    const penguin = "Emperor%20penguin&per_page=5";
-    const orca = "killer%20whale&per_page=5"
-    const owl = "barn%20owl&per_page=5"
-    const tiger = "tiger&per_page=5"
-    const turtle = "sea%20turtle&per_page=5"
-    const shark = "whale%20shark&per_page=5"
-
-    //async function getPictures(pageNum){
-    //    const response = await fetch("https://api.pexels.com/v1/curated?page=$%7BpageNum%7D%22,%7B
-    //        headers:{
-    //            Authorization: API_KEY
-    //        }
-    //    });
-    //    const data = await response.json();
-    //    console.log(data);
-    //
-    //    displayImage(data)
-    //}
+    const penguin = {url:"Emperor%20penguin&per_page=5", animal: "penguin"};
+    const orca = {url:"killer%20whale&per_page=5", animal: "orca"};
+    const owl = {url:"barn%20owl&per_page=5", animal: "owl"};
+    const tiger = {url:"tiger&per_page=5", animal:"tiger"};
+    const turtle = {url:"sea%20turtle&per_page=5", animal:"turtle"};
+    const shark = {url:"whale%20shark&per_page=5", animal:"shark"};
 
     let pen = document.querySelectorAll(".pen");
     let gura = document.querySelectorAll(".shark");
@@ -119,103 +107,32 @@ window.addEventListener('load', event => {
     let tigger = document.querySelectorAll(".tiger");
     let seaturt = document.querySelectorAll(".turtle");
 
-    async function penPictures(){
-        let response = await fetch(imageUrl + penguin, {
-            headers: {
-                Authorization: API_KEY
-            }
-        });
-        let data = await response.json();
-        console.log(data);
+    let queries = [penguin, orca, owl, tiger, turtle, shark];
+    let selectors = [pen, dolph, barn, tigger, seaturt, gura];
+        
+    queries.forEach(e => {
+        (async () => {
+            let res = await fetch(imageUrl + e.url, {
+                headers: {
+                    Authorization: API_KEY
+                }
+            });
 
-        let imgurl = data.photos;
+            let data = await res.json();
+            console.log(data);
 
-        pen.forEach((e,i) => {
-            e.src = imgurl[i].src.medium;
-        });
-    }
+            // let el = document.createElement(e.animal);
+            data.photos.forEach(z => {
+                let img = selectors;
+                console.log(selectors);
+                img.src = z.src.medium;
+                // el.appendChild(img);
+            });
 
-    async function orcPictures(){
-        let response = await fetch(imageUrl + orca, {
-            headers: {
-                Authorization: API_KEY
-            }
-        });
-        let data = await response.json();
-
-        let imgurl = data.photos;
-
-        dolph.forEach((e,i) => {
-            e.src = imgurl[i].src.medium;
-        });
-    }
-
-    async function owlPictures(){
-        let response = await fetch(imageUrl + owl, {
-            headers: {
-                Authorization: API_KEY
-            }
-        });
-        let data = await response.json();
-
-        let imgurl = data.photos;
-
-        barn.forEach((e,i) => {
-            e.src = imgurl[i].src.medium;
-        });
-    }
-
-    async function tigPictures(){
-        let response = await fetch(imageUrl + tiger, {
-            headers: {
-                Authorization: API_KEY
-            }
-        });
-        let data = await response.json();
-
-        let imgurl = data.photos;
-
-        tigger.forEach((e,i) => {
-            e.src = imgurl[i].src.medium;
-        });
-    }
-
-    async function turtPictures(){
-        let response = await fetch(imageUrl + turtle, {
-            headers: {
-                Authorization: API_KEY
-            }
-        });
-        let data = await response.json();
-
-        let imgurl = data.photos;
-
-        seaturt.forEach((e,i) => {
-            e.src = imgurl[i].src.medium;
-        });
-    }
-
-    async function guraPictures(){
-        let response = await fetch(imageUrl + shark, {
-            headers: {
-                Authorization: API_KEY
-            }
-        });
-        let data = await response.json();
-    
-        let imgurl = data.photos;
-
-        gura.forEach((e,i) => {
-            e.src = imgurl[i].src.medium;
-        });
-    }
-
-    penPictures();
-    guraPictures();
-    orcPictures();
-    owlPictures();
-    tigPictures();
-    turtPictures();
+            // let body = document.querySelector(".stuff");
+            // body.appendChild(el);
+        })();
+    });
 
     (async() => {
         let response = await fetch(imageUrl + "wildlife&per_page=5", {
@@ -228,9 +145,9 @@ window.addEventListener('load', event => {
         let imgurl = data.photos;
         let gallery = document.querySelectorAll(".randomgallery")
 
-        gallery.forEach((e,i) => {
-            e.src = imgurl[i].src.medium;
-        });
+        // gallery.forEach((e,i) => {
+        //     e.src = imgurl[i].src.medium;
+        // });
 
     })();
     
@@ -252,4 +169,4 @@ window.addEventListener('load', event => {
 
     // circularText();
 
-});
+})
