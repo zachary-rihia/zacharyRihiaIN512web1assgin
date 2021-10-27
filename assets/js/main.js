@@ -49,21 +49,22 @@ window.addEventListener('load', event => {
     
     let currleft = 0;
 
-    let mimg = document.querySelector(".mainpic img:first-of-type");
-    let limg = document.querySelector(".leftpic img:first-of-type");
-    let rtimg = document.querySelector(".righttop img:first-of-type");
-    let rmimg = document.querySelector(".rightmid img:first-of-type");
-    let rbimg = document.querySelector(".rightbot img:first-of-type");
-
     let science = document.querySelector(".scientific-name-block li");
     let civi = document.querySelector(".civi-name li");
     let animalinfo = document.querySelector(".animal-fact li");
     let locationname = document.querySelector(".location-name li");
 
-    // let scienceArray = Array.from(science);
-    // let civiArray = Array.from(civi);
-    // let animalinfoArray = Array.from(animalinfo);
-    // let locationnameArray = Array.from(locationname);
+    let scienceArray = ["Aptenodytes forsteri", "Rhincodon typus", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
+    let civiArray = ["Emperor Penguin", "Whale Shark", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
+    let animalinfoArray = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."];
+    let locationnameArray = ["Antartica", "Mesoamerican Reef, Coastal East Africa, Gulf of California, Coral Triangle",
+        "Antarctica, Norway, and Alaska", "North America, South America, Europe, Africa",
+        "China, India, and Southwest Asia to the Indonesian island of Sumatra", "Atlantic, Pacific, and Indian Oceans"]
 
     //flicks through the section 3 image gallery via the next button
     document.querySelector(".right").addEventListener("click", () => {
@@ -108,7 +109,8 @@ window.addEventListener('load', event => {
     let seaturt = document.querySelectorAll(".turtle");
 
     let queries = [penguin, orca, owl, tiger, turtle, shark];
-    let selectors = [pen, dolph, barn, tigger, seaturt, gura];
+    let selectors = [gura, dolph, barn, tigger, seaturt, pen];
+    let queriepics = [];
         
     queries.forEach(e => {
         (async () => {
@@ -120,17 +122,18 @@ window.addEventListener('load', event => {
 
             let data = await res.json();
             console.log(data);
+            for (let i = 0; i < 5; i++) {
+                queriepics.push(data.photos[i]);
+                selectors[i] = data.photos[i];
+            }
+            //console.log(queriepics);
 
-            // let el = document.createElement(e.animal);
-            data.photos.forEach(z => {
-                let img = selectors;
-                console.log(selectors);
-                img.src = z.src.medium;
-                // el.appendChild(img);
+            queriepics.forEach((z,i) => {
+                // console.log(z[i] + "yes");
+                //console.log(selectors[i]);
+                // console.log(queriepics);
+                
             });
-
-            // let body = document.querySelector(".stuff");
-            // body.appendChild(el);
         })();
     });
 
@@ -150,23 +153,11 @@ window.addEventListener('load', event => {
         // });
 
     })();
-    
-    // function circularText(txt, radius, classIndex){
-    //     txt = txt.split(""),
-    //     classIndex = document.querySelector(".roundText")
-    //     [classIndex];
 
-    //     let deg = 360 / txt.length,
-    //     origin = 0;
+    // Instantiate `CircleType` with an HTML element.
+    const circleType = new CircleType(document.querySelector('.play-button'));
 
-    //     txt.forEach((ea) => {
-    //         ea = `<h2 style="height:${radius}px; position:absolute;transform:rotate(${origin}deg);
-    //         transform-origin:0 100%">${ea}</h2>`
-    //         classIndex.innerHTML += ea;
-    //         origin += deg;
-    //     });
-    // }
-
-    // circularText();
+    // Set the text radius and direction. Note: setter methods are chainable.
+    circleType.radius().dir(-1);
 
 })

@@ -292,12 +292,10 @@ h1{
     color: blue;
 }
 
-.s1{
-    transform: translate(20px, 85px) rotate(-30deg);
-}
-
-.i{
-    transform: translate(13px, 60px) rotate(-25deg);
+.circle{
+    display: inline-block;
+    margin-bottom: 128px;
+    
 }
 
 .container-gall{
@@ -312,3 +310,20 @@ h1{
     flex-direction: row;
 }
 
+.containerfooter{
+    text-align: center;
+}
+
+
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .play-button {
+    animation: rotating 2s linear infinite;
+  }
