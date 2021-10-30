@@ -111,6 +111,7 @@ window.addEventListener('load', event => {
     let queries = [penguin, orca, owl, tiger, turtle, shark];
     let selectors = [gura, dolph, barn, tigger, seaturt, pen];
     let queriepics = [];
+    let pic = [];
         
     queries.forEach(e => {
         (async () => {
@@ -122,20 +123,23 @@ window.addEventListener('load', event => {
 
             let data = await res.json();
             console.log(data);
+
             for (let i = 0; i < 5; i++) {
                 queriepics.push(data.photos[i]);
-                selectors[i] = data.photos[i];
             }
-            //console.log(queriepics);
+            console.log(queriepics);
 
-            queriepics.forEach((z,i) => {
-                // console.log(z[i] + "yes");
-                //console.log(selectors[i]);
-                // console.log(queriepics);
-                
-            });
+            // queriepics.forEach((z,i) => {
+            //     pic.push(z.src.medium);
+            // });
+
         })();
     });
+
+    // for (let i = 0; i < 30; i++) {
+    //     pic.push(queriepics.src.medium);
+    // }
+    // console.log(pic);
 
     (async() => {
         let response = await fetch(imageUrl + "wildlife&per_page=5", {
