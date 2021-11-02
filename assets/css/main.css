@@ -170,16 +170,17 @@ h1{
     font-size: 1em;
     text-align: center;
 }
-
-.sec
-
-.sec-3-img{
+#thrid-sec{
+    padding: 0;
+    margin: 0;
+}
+.sec-3{
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 0.5fr 1fr 1fr 1fr 1fr 1fr 0.5fr 1fr;
     overflow: hidden;
-    width: 30%;
-    height: 35%;
+    border: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 .sec-3-img img{
@@ -188,30 +189,27 @@ h1{
     transition: margin-left 0.4s;
 }
 
+.sec-3-img div img:not(.pen){ display:none }
+
 .mainpic{
-    grid-column-start: 4;
-    grid-row-start: 1;
-    grid-row-end: 3;
+    
+    grid-area: 1 / 4 / span 5 / span 3;
 }
 
 .leftpic{
-    grid-column-start: 1;
-    grid-row: 3;
+    grid-area: 5 / 1 / span 3 / span 2;
 }
 
 .righttop{
-    grid-column-start: 5;
-    grid-row: 2;
+    grid-area: 2 / 8 / span 2;
 }
 
 .rightmid{
-    grid-column-start: 6;
-    grid-row: 3;
+    grid-area: 3 / 10 / span 2;
 }
 
 .rightbot{
-    grid-column-start: 5;
-    grid-row: 5;
+    grid-area: 6 / 8 / span 2;
 }
 
 .arrowContainer{
@@ -223,6 +221,7 @@ h1{
 }
 
 .arrow{
+    grid-area: 6;
     top: 30%;
     left: 60%;
     height: 60px;
