@@ -174,7 +174,7 @@ h1{
     padding: 0;
     margin: 0;
 }
-.sec-3{
+.sec-3-img{
     display: grid;
     grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 0.5fr 1fr 1fr 1fr 1fr 1fr 0.5fr 1fr;
     overflow: hidden;
@@ -221,7 +221,6 @@ h1{
 }
 
 .arrow{
-    grid-area: 6;
     top: 30%;
     left: 60%;
     height: 60px;
