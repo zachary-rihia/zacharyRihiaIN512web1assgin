@@ -117,7 +117,13 @@ window.addEventListener('load', event => {
         rightmid[currImg%mainpic.length].style.display = "none";
         rightbot[currImg%mainpic.length].style.display = "none";
 
-        currImg--;
+        
+        if (currImg === - 1) {
+            currImg = 6;
+        }
+        else{
+            currImg--;
+        }
 
         mainpic[currImg%mainpic.length].style.display = "block";
         leftpic[currImg%mainpic.length].style.display = "block";
