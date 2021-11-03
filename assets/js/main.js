@@ -66,25 +66,70 @@ window.addEventListener('load', event => {
         "Antarctica, Norway, and Alaska", "North America, South America, Europe, Africa",
         "China, India, and Southwest Asia to the Indonesian island of Sumatra", "Atlantic, Pacific, and Indian Oceans"]
 
+    let mainpic = document.querySelectorAll(".mainpic img");
+    let leftpic = document.querySelectorAll(".leftpic img");
+    let righttop = document.querySelectorAll(".righttop img");
+    let rightmid = document.querySelectorAll(".rightmid img");
+    let rightbot = document.querySelectorAll(".rightbot img");
+
+    let currImg = 0;
+
     //flicks through the section 3 image gallery via the next button
     document.querySelector(".right").addEventListener("click", () => {
         currleft -= 100;
-        mimg.style.marginLeft = currleft + "%";
-        limg.style.marginLeft = currleft + "%";
-        rtimg.style.marginLeft = currleft + "%";
-        rmimg.style.marginLeft = currleft + "%";
-        rbimg.style.marginLeft = currleft + "%";
+       
+        mainpic[currImg%mainpic.length].style.display = "none";
+        leftpic[currImg%mainpic.length].style.display = "none";
+        righttop[currImg%mainpic.length].style.display = "none";
+        rightmid[currImg%mainpic.length].style.display = "none";
+        rightbot[currImg%mainpic.length].style.display = "none";
+
+        currImg++;
+
+        mainpic[currImg%mainpic.length].style.display = "block";
+        leftpic[currImg%mainpic.length].style.display = "block";
+        righttop[currImg%mainpic.length].style.display = "block";
+        rightmid[currImg%mainpic.length].style.display = "block";
+        rightbot[currImg%mainpic.length].style.display = "block";
+        
+        science.style.marginLeft = currleft + "%";
+        science.innerHTML = scienceArray[currImg%mainpic.length];
+        civi.style.marginLeft = currleft + "%";
+        civi.innerHTML = civiArray[currImg%mainpic.length];
+            /*animalinfo.style.marginLeft = currleft + "%"
+            animalinfo.innerHTML = animalinfoArray[i];
+            locationname.style.marginLeft = currleft + "%"
+            locationname.innerHTML = locationnameArray[i];*/
+
+        // mainpic.style.marginLeft = currleft + "%";
+        // leftpic.style.marginLeft = currleft + "%";
+        // righttop.style.marginLeft = currleft + "%";
+        // rightmid.style.marginLeft = currleft + "%";
+        // rightbot.style.marginLeft = currleft + "%";
     })
 
     //flicks through the section 3 image gallery via the prev button
     document.querySelector(".left").addEventListener("click", () => {
         currleft += 100;
-        mimg.style.marginLeft = currleft + "%";
-        limg.style.marginLeft = currleft + "%";
-        rtimg.style.marginLeft = currleft + "%";
-        rmimg.style.marginLeft = currleft + "%";
-        rbimg.style.marginLeft = currleft + "%";
+        mainpic[currImg%mainpic.length].style.display = "none";
+        leftpic[currImg%mainpic.length].style.display = "none";
+        righttop[currImg%mainpic.length].style.display = "none";
+        rightmid[currImg%mainpic.length].style.display = "none";
+        rightbot[currImg%mainpic.length].style.display = "none";
 
+        currImg--;
+
+        mainpic[currImg%mainpic.length].style.display = "block";
+        leftpic[currImg%mainpic.length].style.display = "block";
+        righttop[currImg%mainpic.length].style.display = "block";
+        rightmid[currImg%mainpic.length].style.display = "block";
+        rightbot[currImg%mainpic.length].style.display = "block";
+        
+        // mainpic.style.marginLeft = currleft + "%";
+        // leftpic.style.marginLeft = currleft + "%";
+        // righttop.style.marginLeft = currleft + "%";
+        // rightmid.style.marginLeft = currleft + "%";
+        // rightbot.style.marginLeft = currleft + "%";
     })
 
     //Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
@@ -128,7 +173,7 @@ window.addEventListener('load', event => {
 
         })();
     });
-    
+
     (async() => {
         let response = await fetch(imageUrl + "wildlife&per_page=5", {
             headers: {
