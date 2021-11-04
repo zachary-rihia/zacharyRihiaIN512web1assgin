@@ -2,3 +2,6 @@ node_modules/
 npm-debug.log
 .DS_Store
 /*.env
+backstop_data/*
+!backstop_data/bitmaps_reference
+demo/sftp-config.json
