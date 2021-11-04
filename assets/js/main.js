@@ -22,10 +22,11 @@ window.addEventListener('load', event => {
     let lastScrollPosition = 0;
     let ticking = false;
 
+    let sec2img = document.querySelectorAll(".sec-2-img")
     //selects all the imgs of the 2nd section to make them do all the same animation
     function callimg2(scrollPos){
 
-        document.querySelectorAll(".sec-2-img").forEach(img => {
+        sec2img.forEach(img => {
             img.style.top = 0;
             img.style.opacity = 1;
             img.style.borderRadius = 0;
@@ -54,15 +55,15 @@ window.addEventListener('load', event => {
     let animalinfo = document.querySelector(".animal-fact li");
     let locationname = document.querySelector(".location-name li");
 
-    let scienceArray = ["Aptenodytes forsteri", "Rhincodon typus", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
-    let civiArray = ["Emperor Penguin", "Whale Shark", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
+    let scienceArray = ["Rhincodon typus", "Aptenodytes forsteri", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
+    let civiArray = ["Whale Shark", "Emperor Penguin", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
     let animalinfoArray = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."];
-    let locationnameArray = ["Antartica", "Mesoamerican Reef, Coastal East Africa, Gulf of California, Coral Triangle",
+    let locationnameArray = ["Mesoamerican Reef, Coastal East Africa, Gulf of California, Coral Triangle", "Antartica",
         "Antarctica, Norway, and Alaska", "North America, South America, Europe, Africa",
         "China, India, and Southwest Asia to the Indonesian island of Sumatra", "Atlantic, Pacific, and Indian Oceans"]
 
@@ -72,7 +73,7 @@ window.addEventListener('load', event => {
     let rightmid = document.querySelectorAll(".rightmid img");
     let rightbot = document.querySelectorAll(".rightbot img");
 
-    let currImg = 0;
+    let currImg = 84;
 
     //flicks through the section 3 image gallery via the next button
     document.querySelector(".right").addEventListener("click", () => {
@@ -92,14 +93,10 @@ window.addEventListener('load', event => {
         rightmid[currImg%mainpic.length].style.display = "block";
         rightbot[currImg%mainpic.length].style.display = "block";
         
-        science.style.marginLeft = currleft + "%";
         science.innerHTML = scienceArray[currImg%mainpic.length];
-        civi.style.marginLeft = currleft + "%";
         civi.innerHTML = civiArray[currImg%mainpic.length];
-            /*animalinfo.style.marginLeft = currleft + "%"
-            animalinfo.innerHTML = animalinfoArray[i];
-            locationname.style.marginLeft = currleft + "%"
-            locationname.innerHTML = locationnameArray[i];*/
+        // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
+        locationname.innerHTML = locationnameArray[currImg%mainpic.length];
 
         // mainpic.style.marginLeft = currleft + "%";
         // leftpic.style.marginLeft = currleft + "%";
@@ -118,7 +115,7 @@ window.addEventListener('load', event => {
         rightbot[currImg%mainpic.length].style.display = "none";
 
         
-        if (currImg === - 1) {
+        if (currImg < 0) {
             currImg = 6;
         }
         else{
@@ -130,6 +127,11 @@ window.addEventListener('load', event => {
         righttop[currImg%mainpic.length].style.display = "block";
         rightmid[currImg%mainpic.length].style.display = "block";
         rightbot[currImg%mainpic.length].style.display = "block";
+
+        science.innerHTML = scienceArray[currImg%mainpic.length];
+        civi.innerHTML = civiArray[currImg%mainpic.length];
+        // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
+        locationname.innerHTML = locationnameArray[currImg%mainpic.length];
         
         // mainpic.style.marginLeft = currleft + "%";
         // leftpic.style.marginLeft = currleft + "%";
@@ -173,6 +175,8 @@ window.addEventListener('load', event => {
             let data = await res.json();
             let currSelectors = selectors[index];
 
+            console.log(data);
+
             data.photos.forEach((photo,index2) => {
                 currSelectors[index2].src = photo.src.medium;
             });
@@ -181,26 +185,36 @@ window.addEventListener('load', event => {
     });
 
     (async() => {
-        let response = await fetch(imageUrl + "wildlife&per_page=5", {
+        let response = await fetch(imageUrl + "wildlife&per_page=6", {
             headers: {
                 Authorization: API_KEY
             }
         });
+        
         let data = await response.json();
-
+        
         let imgurl = data.photos;
-        let gallery = document.querySelectorAll(".randomgallery")
+        console.log(sec2img);
+        sec2img.forEach((e,i) => {
+            e.src = imgurl[i].src.small;
+        })
 
-        // gallery.forEach((e,i) => {
-        //     e.src = imgurl[i].src.medium;
-        // });
+        let gallery = document.querySelectorAll(".randomgallery")
+        console.log(gallery);
+        gallery.forEach((e,i) => {
+            e.src = imgurl[i].src.medium;
+            console.log(1);
+        });
 
     })();
 
     // Instantiate `CircleType` with an HTML element.
     const circleType = new CircleType(document.querySelector('.play-button'));
+    let circletext = new CircleType(document.querySelector(".circle"));
 
     // Set the text radius and direction. Note: setter methods are chainable.
+    circletext.radius(70);
     circleType.radius().dir(-1);
+
 
 })

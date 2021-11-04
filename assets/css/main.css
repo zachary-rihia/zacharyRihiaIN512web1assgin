@@ -261,29 +261,47 @@ h1{
     right: 30px;
 }
 
-#promote{
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    margin: auto;
-    width: 50%;
+.makersFacts{
+    width: 66.25rem;
+    margin: 0 auto;
+    padding: 12.5rem 0 6.25rem;
 }
 
 .makers{
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 100%;
 }
 
-.makers-list li{
-    right: 50%
+.makerfact{
+    position: relative;
+    height: 12.125rem;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.namefact{
+    font-size: 1.5em;
+    line-height: 2.79;
+    padding-top: 1.4375rem;
+}
+
+.seperator{
+    border-top: 4px solid black;
+    
 }
 
 .number{
-    font-size: 7em;
+    font-size: 7.8125em;
+    align-self: center;
+    padding-top: 2.125rem;
+    width: 40em;
+    padding-right: 35rem;
 }
 
 .heading3-title{
-    justify-self: end;
+    padding-left: 8.75rem;
 }
 
 .bluecolour{
@@ -301,11 +319,6 @@ h1{
     flex-direction: row;
     width: 50%;
     height: 30%;
-}
-
-.randomgallery{
-    width: 50%;
-    flex-direction: row;
 }
 
 .containerfooter{
