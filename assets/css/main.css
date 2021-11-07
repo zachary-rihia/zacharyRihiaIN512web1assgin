@@ -121,6 +121,7 @@ section{
 
 .hero{
     text-align: center;
+    background-color: #eee;
     position: relative;
     padding: 0;
     padding-top: 60px;
@@ -174,7 +175,7 @@ h1{
     padding: 0;
     margin: 0;
 }
-.sec-3-img{
+.sec-3{
     display: grid;
     grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     overflow: hidden;
@@ -183,13 +184,13 @@ h1{
     height: 100vh;
 }
 
-.sec-3-img img{
+.sec-3 img{
     width: 100%;
     height: 100%;
     transition: margin-left 0.4s;
 }
 
-.sec-3-img div img:not(.pen){ display:none }
+.sec-3 div img:not(.pen){ display:none }
 
 .mainpic{
     
@@ -212,12 +213,29 @@ h1{
     grid-area: 6 / 6 / span 2 / span 1;
 }
 
-.arrowContainer{
-    display: flex;
+.scientific-name-block{
+    grid-area:  5 / 6;
+}
+
+.civi-name{
+    grid-area: 6 / 4;
+}
+
+.animal-fact{
+    grid-area: 7 / 4;
+}
+
+.location-name{
+    -webkit-writing-mode: vertical-rl;
+    grid-area: 2 / 2 / span 3;
 }
 
 .right{
-    justify-content: flex-end;
+    grid-area: 7 / 7;
+}
+
+.left{
+    grid-area: 7 / 2;
 }
 
 .arrow{
@@ -315,10 +333,24 @@ h1{
 }
 
 .container-gall{
+    background-color: #eee;
     display: flex;
-    flex-direction: row;
-    width: 50%;
-    height: 30%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-top: 3.125rem;
+    padding-bottom: 7.1875rem;
+    overflow: hidden;
+}
+
+.randomgallery{
+
+}
+
+.galltext{
+    align-items: center;
 }
 
 .containerfooter{

@@ -194,18 +194,17 @@ window.addEventListener('load', event => {
         let data = await response.json();
         
         let imgurl = data.photos;
-        console.log(sec2img);
-        sec2img.forEach((e,i) => {
+        let imgsec2 = document.querySelectorAll(".img-wrap2")
+
+        imgsec2.forEach((e,i) => {
             e.src = imgurl[i].src.small;
         })
 
         let gallery = document.querySelectorAll(".randomgallery")
-        console.log(gallery);
         gallery.forEach((e,i) => {
             e.src = imgurl[i].src.medium;
-            console.log(1);
         });
-
+        
     })();
 
     // Instantiate `CircleType` with an HTML element.
