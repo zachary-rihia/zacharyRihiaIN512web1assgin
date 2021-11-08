@@ -192,6 +192,11 @@ h1{
 
 .sec-3 div img:not(.pen){ display:none }
 
+@media screen and (min-width: 600px) and (max-width: 1024){
+    .sec-3 div:not(.mainpic){ display:none }
+    .arrow{ display: none }
+}
+
 .mainpic{
     
     grid-area: 1 / 3 / span 5 / span 2;
@@ -226,7 +231,7 @@ h1{
 }
 
 .location-name{
-    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
     grid-area: 2 / 2 / span 3;
 }
 
@@ -310,6 +315,12 @@ h1{
     
 }
 
+@media screen and (min-width: 600px) and (max-width: 1024) {
+    .number{
+
+    }
+}
+
 .number{
     font-size: 7.8125em;
     align-self: center;
@@ -329,7 +340,6 @@ h1{
 .circle{
     display: inline-block;
     margin-bottom: 128px;
-    
 }
 
 .container-gall{
@@ -357,16 +367,15 @@ h1{
     text-align: center;
 }
 
-
-
-  @keyframes rotating {
+@keyframes rotating {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  .play-button {
-    animation: rotating 2s linear infinite;
-  }
+}
+
+.play-button {
+animation: rotating 2s linear infinite;
+}
