@@ -30,6 +30,26 @@ nav{
     align-items: center;
 }
 
+.container ul{
+    display: flex;
+    align-content: space-between;
+}
+
+.mobile-menu{
+    opacity: 0;
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 1020){
+    .mobile-cta{
+        opacity: 0;
+    }
+
+    .normalMenu{
+        opacity: 0;
+    }
+}
+
 .menu{
     display: flex;
     flex-direction: column;
@@ -342,6 +362,12 @@ h1{
     margin-bottom: 128px;
 }
 
+.circle{
+    position: absolute;
+    top: -50px;
+    transform: rotate(30deg);
+}
+
 .container-gall{
     background-color: #eee;
     display: flex;
@@ -351,12 +377,11 @@ h1{
     -webkit-box-align: center;
     align-items: center;
     padding-top: 3.125rem;
-    padding-bottom: 7.1875rem;
-    overflow: hidden;
+    padding-bottom: 3rem;
 }
 
-.randomgallery{
-
+.randomgallcontainer{
+    display: flex;
 }
 
 .galltext{
@@ -365,6 +390,15 @@ h1{
 
 .containerfooter{
     text-align: center;
+}
+
+.footertext{
+    position: relative;
+}
+
+.footer-nav ul{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 @keyframes rotating {
