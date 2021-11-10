@@ -7,7 +7,7 @@ body{
 }
 
 .navbar{
-    padding: 1em;
+    padding: 1rem;
     position: fixed;
     width: 100%;
     box-sizing: border-box;
@@ -40,7 +40,7 @@ nav{
 
 }
 
-@media screen and (min-width: 600px) and (max-width: 1024px){
+@media screen and (max-width: 1024px){
     .mobile-cta{
         opacity: 0;
     }
@@ -48,6 +48,11 @@ nav{
     .normalMenu{
         opacity: 0;
     }
+
+    .mobile-menu{
+        opacity: 1;
+    }
+    
 }
 
 .menu{
@@ -69,8 +74,8 @@ nav{
 .mobile-exit-menu{
     cursor: pointer;
     margin-left: auto;
-    padding-right: 2em;
-    padding-top: 2em;
+    padding-right: 2rem;
+    padding-top: 2rem;
 }
 
 .menu ul{
@@ -89,7 +94,7 @@ nav{
 
 .normalMenu .letter{
     display: inline-block;
-    line-height: 1em;
+    line-height: 1rem;
 }
 
 .menu .contacts{
@@ -97,7 +102,7 @@ nav{
     transition: opacity 2s;
     font-size: 120%;
     margin-top: 0;
-    margin-bottom: 15em;
+    margin-bottom: 15rem;
 }
 
 a:link{
@@ -119,9 +124,9 @@ ul{
 }
 
 section{
-    padding-top: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .video-container{
@@ -162,9 +167,9 @@ section{
 }
 
 h1{
-    font-size: 2.5em;
-    line-height: 1.3em;
-    margin-top: .2em;
+    font-size: 2.5rem;
+    line-height: 1.3rem;
+    margin-top: .2rem;
 }
 
 #second-sec{
@@ -186,18 +191,18 @@ h1{
 
 .sec-2-text .letter{
     display: inline-block;
-    line-height: 1em;
+    line-height: 1rem;
 }
 
 .text-sec{
     display: flex;
-    padding-top: 4.8em;
-    padding-bottom: 4.8em;
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
     padding-left: 0;
     padding-right: 0;
     margin: 0;
     border: 0;
-    font-size: 1em;
+    font-size: 1rem;
     text-align: center;
 }
 #thrid-sec{
@@ -345,14 +350,18 @@ h1{
 }
 
 .namefact{
-    font-size: 1.5em;
+    font-size: 1.5rem;
     line-height: 2.79;
     padding-top: 1.4375rem;
 }
 
-.seperator{
-    border-top: 4px solid black;
-    
+hr{
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;
+    background-color: black;
+    height: 3px;
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024) {
@@ -362,9 +371,8 @@ h1{
 }
 
 .number{
-    font-size: 7.8125em;
+    font-size: 7.8125rem;
     align-self: center;
-    padding-top: 2.125rem;
     width: 40em;
     padding-right: 35rem;
 }
