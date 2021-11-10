@@ -86,6 +86,12 @@ window.addEventListener('load', event => {
         rightbot[currImg%mainpic.length].style.display = "none";
 
         currImg++;
+        
+        // mainpic.style.marginLeft = currleft + "%";
+        // leftpic.style.marginLeft = currleft + "%";
+        // righttop.style.marginLeft = currleft + "%";
+        // rightmid.style.marginLeft = currleft + "%";
+        // rightbot.style.marginLeft = currleft + "%";
 
         mainpic[currImg%mainpic.length].style.display = "block";
         leftpic[currImg%mainpic.length].style.display = "block";
@@ -98,11 +104,7 @@ window.addEventListener('load', event => {
         // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
         locationname.innerHTML = locationnameArray[currImg%mainpic.length];
 
-        // mainpic.style.marginLeft = currleft + "%";
-        // leftpic.style.marginLeft = currleft + "%";
-        // righttop.style.marginLeft = currleft + "%";
-        // rightmid.style.marginLeft = currleft + "%";
-        // rightbot.style.marginLeft = currleft + "%";
+        
     })
 
     //flicks through the section 3 image gallery via the prev button
@@ -121,6 +123,12 @@ window.addEventListener('load', event => {
         else{
             currImg--;
         }
+        
+        // mainpic.style.marginLeft = currleft + "%";
+        // leftpic.style.marginLeft = currleft + "%";
+        // righttop.style.marginLeft = currleft + "%";
+        // rightmid.style.marginLeft = currleft + "%";
+        // rightbot.style.marginLeft = currleft + "%";
 
         mainpic[currImg%mainpic.length].style.display = "block";
         leftpic[currImg%mainpic.length].style.display = "block";
@@ -133,11 +141,7 @@ window.addEventListener('load', event => {
         // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
         locationname.innerHTML = locationnameArray[currImg%mainpic.length];
         
-        // mainpic.style.marginLeft = currleft + "%";
-        // leftpic.style.marginLeft = currleft + "%";
-        // righttop.style.marginLeft = currleft + "%";
-        // rightmid.style.marginLeft = currleft + "%";
-        // rightbot.style.marginLeft = currleft + "%";
+        
     })
 
     //Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
@@ -207,6 +211,37 @@ window.addEventListener('load', event => {
         
     })();
 
+    let normMenu = document.querySelectorAll(".normalMenu");
+
+    normMenu.forEach((e,i) => {
+        e.innerHTML = e.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        
+        e.addEventListener("mouseover", () => {
+        anime.timeline()
+        .add({
+            targets: '.normalMenu .letter',
+            translateY: [0,-9],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 400,
+            delay: (el, i) => 10 + 30 * i
+          }).add({
+          targets: '.normalMenu .letter',
+          translateY: [20,0],
+          translateZ: 0,
+          opacity: [0,1],
+          easing: "easeOutExpo",
+          duration: 300,
+          delay: (el, i) => 30 + 30 * i,
+          opacity: 1,
+          translateY: [0,0]
+        });
+    });
+
+    })
+    
+
+    
     // Instantiate `CircleType` with an HTML element.
     const circleType = new CircleType(document.querySelector('.play-button'));
     let circletext = new CircleType(document.querySelector(".circle"));

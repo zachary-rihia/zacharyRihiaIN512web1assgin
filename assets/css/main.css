@@ -83,6 +83,15 @@ nav{
     
 }
 
+.normalMenu{
+    cursor: pointer;
+}
+
+.normalMenu .letter{
+    display: inline-block;
+    line-height: 1em;
+}
+
 .menu .contacts{
     opacity: 0;
     transition: opacity 2s;
