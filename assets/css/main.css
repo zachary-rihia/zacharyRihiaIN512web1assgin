@@ -40,7 +40,7 @@ nav{
 
 }
 
-@media screen and (min-width: 600px) and (max-width: 1020){
+@media screen and (min-width: 600px) and (max-width: 1024px){
     .mobile-cta{
         opacity: 0;
     }
@@ -331,6 +331,17 @@ h1{
     height: 12.125rem;
     justify-content: space-around;
     overflow: hidden;
+}
+
+.makers.seperator{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #000000;
+    transform-origin: 100% 100%;
+    bottom: 0;
 }
 
 .namefact{

@@ -37,7 +37,7 @@ window.addEventListener('load', event => {
     //scrolling event which makes the pictures appear on the 2nd section cutting off some of the words in the quote
     document.addEventListener("scroll", function(e){
         lastScrollPosition = window.screenY;
-
+        console.log(lastScrollPosition);
         if (!ticking){
             window.requestAnimationFrame(function(){
                 callimg2(lastScrollPosition);    
@@ -46,7 +46,9 @@ window.addEventListener('load', event => {
 
             ticking = true;
         }
-    })
+    });
+
+    
     
     let currleft = 0;
 
@@ -213,9 +215,9 @@ window.addEventListener('load', event => {
 
     let normMenu = document.querySelectorAll(".normalMenu");
 
-    normMenu.forEach((e,i) => {
+    normMenu.forEach((e) => {
         e.innerHTML = e.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-        
+
         e.addEventListener("mouseover", () => {
         anime.timeline()
         .add({
@@ -239,8 +241,42 @@ window.addEventListener('load', event => {
     });
 
     })
-    
 
+    let promo = document.querySelectorAll(".makerfact");
+    let promoscroll = 150;
+
+    // promo.forEach((e) => {
+    //     e.innerHTML = e.textContent.replace(/\S/g, "<span class='promo'>$&</span>");
+
+    //     e.addEventListener("scroll", () => {
+    //         if (window.screenY == promoscroll) {
+    //             anime.timeline()
+    //             .add({
+    //               targets: '.makerfact .line',
+    //               scaleX: [0,1],
+    //               opacity: [0.5,1],
+    //               easing: "easeInOutExpo",
+    //               duration: 900
+    //             }).add({
+    //               targets: '.makerfact .promo',
+    //               opacity: [0,1],
+    //               translateX: [40,0],
+    //               translateZ: 0,
+    //               scaleX: [0.3, 1],
+    //               easing: "easeOutExpo",
+    //               duration: 800,
+    //               offset: '-=600',
+    //               delay: (el, i) => 150 + 25 * i
+    //             }).add({
+    //               targets: '.makerfact',
+    //               opacity: 0,
+    //               duration: 1000,
+    //               easing: "easeOutExpo",
+    //               delay: 1000
+    //             });
+    //         }
+    //     })
+    // })
     
     // Instantiate `CircleType` with an HTML element.
     const circleType = new CircleType(document.querySelector('.play-button'));
