@@ -37,7 +37,7 @@ window.addEventListener('load', event => {
     //scrolling event which makes the pictures appear on the 2nd section cutting off some of the words in the quote
     document.addEventListener("scroll", function(e){
         lastScrollPosition = window.screenY;
-        console.log(lastScrollPosition);
+        console.log(window.screenY);
         if (!ticking){
             window.requestAnimationFrame(function(){
                 callimg2(lastScrollPosition);    
@@ -51,12 +51,14 @@ window.addEventListener('load', event => {
     
     
     let currleft = 0;
-
+    
+    //third section selectors
     let science = document.querySelector(".scientific-name-block li");
     let civi = document.querySelector(".civi-name li");
     let animalinfo = document.querySelector(".animal-fact li");
     let locationname = document.querySelector(".location-name li");
 
+    //arrays for the third section information
     let scienceArray = ["Rhincodon typus", "Aptenodytes forsteri", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
     let civiArray = ["Whale Shark", "Emperor Penguin", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
     let animalinfoArray = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -101,6 +103,7 @@ window.addEventListener('load', event => {
         rightmid[currImg%mainpic.length].style.display = "block";
         rightbot[currImg%mainpic.length].style.display = "block";
         
+        //moves through the arrays above when clicking the button
         science.innerHTML = scienceArray[currImg%mainpic.length];
         civi.innerHTML = civiArray[currImg%mainpic.length];
         // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
@@ -138,6 +141,7 @@ window.addEventListener('load', event => {
         rightmid[currImg%mainpic.length].style.display = "block";
         rightbot[currImg%mainpic.length].style.display = "block";
 
+        //moves through the arrays above when clicking the button
         science.innerHTML = scienceArray[currImg%mainpic.length];
         civi.innerHTML = civiArray[currImg%mainpic.length];
         // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
@@ -160,6 +164,7 @@ window.addEventListener('load', event => {
     const turtle = {url:"sea%20turtle&per_page=5", animal:"turtle"};
     const shark = {url:"whale%20shark&per_page=5", animal:"shark"};
 
+    //third section selectors to put specific pictures for the search qurey into  
     let pen = document.querySelectorAll(".pen");
     let gura = document.querySelectorAll(".shark");
     let dolph = document.querySelectorAll(".orca");
@@ -167,11 +172,14 @@ window.addEventListener('load', event => {
     let tigger = document.querySelectorAll(".tiger");
     let seaturt = document.querySelectorAll(".turtle");
 
+    // an array for the search quries 
     let queries = [penguin, orca, owl, tiger, turtle, shark];
+    // an array for each of the selectors
     let selectors = [gura, dolph, barn, tigger, seaturt, pen];
         
     queries.forEach((e,index) => {
         (async () => {
+            //gets all the imgs via the search quries
             let res = await fetch(imageUrl + e.url, {
                 headers: {
                     Authorization: API_KEY
@@ -179,16 +187,17 @@ window.addEventListener('load', event => {
             });
 
             let data = await res.json();
+            //a vairable that grabs the current index of the selector array
             let currSelectors = selectors[index];
 
-            console.log(data);
-
+            // inputs each photo into the imgs to display
             data.photos.forEach((photo,index2) => {
                 currSelectors[index2].src = photo.src.medium;
             });
 
         })();
     });
+
 
     (async() => {
         let response = await fetch(imageUrl + "wildlife&per_page=6", {
@@ -202,10 +211,12 @@ window.addEventListener('load', event => {
         let imgurl = data.photos;
         let imgsec2 = document.querySelectorAll(".img-wrap2")
 
+        // places all the imgs into the second section
         imgsec2.forEach((e,i) => {
             e.src = imgurl[i].src.small;
         })
 
+        // grabs imgs for the last section
         let gallery = document.querySelectorAll(".randomgallery")
         gallery.forEach((e,i) => {
             e.src = imgurl[i].src.medium;
@@ -215,6 +226,7 @@ window.addEventListener('load', event => {
 
     let normMenu = document.querySelectorAll(".normalMenu");
 
+    //animation for the header menu
     normMenu.forEach((e) => {
         e.innerHTML = e.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
         
@@ -245,37 +257,38 @@ window.addEventListener('load', event => {
 
     })
 
-    let promo = document.querySelectorAll(".makerfact");
-    let promoscroll = 150;
+    let promo = document.querySelectorAll(".row");
+    let promoscroll = 60;
 
+    //animation for the projects section
     promo.forEach((e) => {
-        e.innerHTML = e.textContent.replace(/\S/g, "<span class='promo'>$&</span>");
+        // e.innerHTML = e.textContent.replace(/\S/g, "<span class='promo'>$&</span>");
 
        
-            anime.timeline({loop: true})
-            .add({
-              targets: '.makerfact .line',
-              scaleX: [0,1],
-              opacity: [0.5,1],
-              easing: "easeInOutExpo",
-              duration: 900
-            }).add({
-              targets: '.makerfact .promo',
-              opacity: [0,1],
-              translateX: [40,0],
-              translateZ: 0,
-              scaleX: [0.3, 1],
-              easing: "easeOutExpo",
-              duration: 800,
-              offset: '-=600',
-              delay: (el, i) => 150 + 25 * i
-            }).add({
-              targets: '.makerfact',
-              opacity: 0,
-              duration: 1000,
-              easing: "easeOutExpo",
-              delay: 1000
-            });
+            // anime.timeline({loop: true})
+            // .add({
+            //   targets: '.row .line',
+            //   scaleX: [0,1],
+            //   opacity: [0.5,1],
+            //   easing: "easeInOutExpo",
+            //   duration: 900
+            // }).add({
+            //   targets: '.row .promo',
+            //   opacity: [0,1],
+            //   translateX: [40,0],
+            //   translateZ: 0,
+            //   scaleX: [0.3, 1],
+            //   easing: "easeOutExpo",
+            //   duration: 800,
+            //   offset: '-=600',
+            //   delay: (el, i) => 150 + 25 * i
+            // }).add({
+            //   targets: '.row',
+            //   opacity: 0,
+            //   duration: 1000,
+            //   easing: "easeOutExpo",
+            //   delay: 1000
+            // });
         
 
         // e.addEventListener("scroll", () => {

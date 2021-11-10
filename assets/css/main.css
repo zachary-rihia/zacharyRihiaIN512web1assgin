@@ -347,7 +347,9 @@ h1{
 }
 
 .heading3-title{
-    padding-left: 8.75rem;
+    padding-left: .75rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
 }
 
 .bluecolour{
