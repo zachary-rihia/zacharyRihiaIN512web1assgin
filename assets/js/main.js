@@ -217,28 +217,31 @@ window.addEventListener('load', event => {
 
     normMenu.forEach((e) => {
         e.innerHTML = e.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        
+        e.addEventListener("mouseover", (evt) => {
+            
+            let target = evt.target.matches(".normalMenu") ? evt.target : evt.target.parentElement;
 
-        e.addEventListener("mouseover", () => {
-        anime.timeline()
-        .add({
-            targets: '.normalMenu .letter',
-            translateY: [0,-9],
-            opacity: [1,0],
-            easing: "easeInExpo",
-            duration: 400,
-            delay: (el, i) => 10 + 30 * i
-          }).add({
-          targets: '.normalMenu .letter',
-          translateY: [20,0],
-          translateZ: 0,
-          opacity: [0,1],
-          easing: "easeOutExpo",
-          duration: 300,
-          delay: (el, i) => 30 + 30 * i,
-          opacity: 1,
-          translateY: [0,0]
+            anime.timeline()
+            .add({
+                targets: `#${target.id} .letter`,
+                translateY: [0,-9],
+                opacity: [1,0],
+                easing: "easeInExpo",
+                duration: 400,
+                delay: (el, i) => 10 + 30 * i
+            }).add({
+            targets: `#${target.id} .letter`,
+            translateY: [20,0],
+            translateZ: 0,
+            opacity: [0,1],
+            easing: "easeOutExpo",
+            duration: 300,
+            delay: (el, i) => 30 + 30 * i,
+            opacity: 1,
+            translateY: [0,0]
+            });
         });
-    });
 
     })
 
@@ -248,34 +251,61 @@ window.addEventListener('load', event => {
     promo.forEach((e) => {
         e.innerHTML = e.textContent.replace(/\S/g, "<span class='promo'>$&</span>");
 
-        e.addEventListener("scroll", () => {
-            if (window.screenY == promoscroll) {
-                anime.timeline()
-                .add({
-                  targets: '.makerfact .line',
-                  scaleX: [0,1],
-                  opacity: [0.5,1],
-                  easing: "easeInOutExpo",
-                  duration: 900
-                }).add({
-                  targets: '.makerfact .promo',
-                  opacity: [0,1],
-                  translateX: [40,0],
-                  translateZ: 0,
-                  scaleX: [0.3, 1],
-                  easing: "easeOutExpo",
-                  duration: 800,
-                  offset: '-=600',
-                  delay: (el, i) => 150 + 25 * i
-                }).add({
-                  targets: '.makerfact',
-                  opacity: 0,
-                  duration: 1000,
-                  easing: "easeOutExpo",
-                  delay: 1000
-                });
-            }
-        })
+       
+            anime.timeline({loop: true})
+            .add({
+              targets: '.makerfact .line',
+              scaleX: [0,1],
+              opacity: [0.5,1],
+              easing: "easeInOutExpo",
+              duration: 900
+            }).add({
+              targets: '.makerfact .promo',
+              opacity: [0,1],
+              translateX: [40,0],
+              translateZ: 0,
+              scaleX: [0.3, 1],
+              easing: "easeOutExpo",
+              duration: 800,
+              offset: '-=600',
+              delay: (el, i) => 150 + 25 * i
+            }).add({
+              targets: '.makerfact',
+              opacity: 0,
+              duration: 1000,
+              easing: "easeOutExpo",
+              delay: 1000
+            });
+        
+
+        // e.addEventListener("scroll", () => {
+        //     if (window.screenY == promoscroll) {
+        //         anime.timeline({loop: true})
+        //         .add({
+        //           targets: '.makerfact .line',
+        //           scaleX: [0,1],
+        //           opacity: [0.5,1],
+        //           easing: "easeInOutExpo",
+        //           duration: 900
+        //         }).add({
+        //           targets: '.makerfact .promo',
+        //           opacity: [0,1],
+        //           translateX: [40,0],
+        //           translateZ: 0,
+        //           scaleX: [0.3, 1],
+        //           easing: "easeOutExpo",
+        //           duration: 800,
+        //           offset: '-=600',
+        //           delay: (el, i) => 150 + 25 * i
+        //         }).add({
+        //           targets: '.makerfact',
+        //           opacity: 0,
+        //           duration: 1000,
+        //           easing: "easeOutExpo",
+        //           delay: 1000
+        //         });
+        //     }
+        // })
     })
     
     // Instantiate `CircleType` with an HTML element.
@@ -283,7 +313,7 @@ window.addEventListener('load', event => {
     let circletext = new CircleType(document.querySelector(".circle"));
 
     // Set the text radius and direction. Note: setter methods are chainable.
-    circletext.radius(70);
+    circletext.radius(180);
     circleType.radius().dir(-1);
 
 
