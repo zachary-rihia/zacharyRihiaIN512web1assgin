@@ -322,7 +322,9 @@ window.addEventListener('load', event => {
     })
     
     // Instantiate `CircleType` with an HTML element.
+    // changes the text to circle for the button in the hero section
     const circleType = new CircleType(document.querySelector('.play-button'));
+    // changes the text in the footer section to a circle
     let circletext = new CircleType(document.querySelector(".circle"));
 
     // Set the text radius and direction. Note: setter methods are chainable.

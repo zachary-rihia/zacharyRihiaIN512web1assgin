@@ -101,6 +101,12 @@ nav{
     line-height: 1rem;
 }
 
+.normalMenuContainer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
 .menu .contacts{
     opacity: 0;
     transition: opacity 2s;
@@ -165,9 +171,62 @@ section{
     padding-top: 60px;
 }
 
-.title{
+.titleContainer{
     position: absolute;
     width: 100%;
+    padding-top: 2.54rem;
+}
+
+.title{
+    padding-bottom: 1.2rem;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -moz-animation: scroll-left 2s linear infinite;
+    -webkit-animation: scroll-left 2s linear infinite;
+    animation: scroll-left 20s linear infinite;
+    font-size: 4rem;
+}
+
+@-moz-keyframes scroll-left{
+    0%{
+        -moz-animation: translate(100%);
+    }
+    100%{
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes scroll-left {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+hr{
+    height: 3px;
+    background: black;
 }
 
 h1{
@@ -209,11 +268,14 @@ h1{
     font-size: 1rem;
     text-align: center;
 }
+
 #thrid-sec{
     padding: 0;
     margin: 0;
 }
+
 .sec-3{
+    background-color: #eee;
     display: grid;
     grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     overflow: hidden;
@@ -384,17 +446,29 @@ h1{
     align-items: center;
 }
 
+.footer{
+    margin: 3rem;
+}
+
 .containerfooter{
     text-align: center;
+    padding-bottom: 3rem;
+    margin: 2rem;
 }
 
 .footertext{
     position: relative;
+    padding-bottom: 4rem;
 }
 
 .footer-nav ul{
     display: flex;
     justify-content: space-evenly;
+}
+
+.footer-nav ul li:hover{
+    cursor: pointer;
+    color: blue;
 }
 
 @keyframes rotating {
