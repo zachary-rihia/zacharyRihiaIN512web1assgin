@@ -10,5 +10,5 @@ https://devcenter.heroku.com/articles/heroku-cli
 npm install -g heroku
 heroku login
 
-// is the live server
+// the live server
 https://macabre-broomstick-86010.herokuapp.com/
