@@ -1,17 +1,49 @@
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1020px){
+    /* the navbar at the top of the screen*/
     .mobile-cta{
         opacity: 0;
     }
-
     .normalMenu{
         opacity: 0;
     }
-
     .mobile-menu{
         opacity: 1;
     }
 
+    /* the hero section*/
+    .container--hero{
+        height: 100vh;
+    }
+    .title{
+        font-size: 2rem;
+        padding: 0;
+    }
+    .video-container{
+        right: 50%
+    }
+    video{
+        height: 100vh;
+    }
+
+    /* section 2 with the text and images together*/
+    #second-sec{
+        width: 70%;
+    }
+
+    /* section 3 with the images and information on the images*/
+    .sec-3{
+        grid-template: .5fr 4fr /  1fr 1fr 1fr;
+    }
     .sec-3 div:not(.mainpic){ display:none }
+    .mainpic{
+        grid-area: 2 / span 3;
+    }
+    .scientific-name-block{
+        grid-area: 1 / 2;
+    }
+    .civi-name{display: none;}
+    .animal-fact{display: none;}
+    .location-name{display: none;}
     .arrow{ display: none }
     
 }

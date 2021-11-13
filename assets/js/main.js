@@ -1,5 +1,12 @@
 window.addEventListener('load', event => {
 
+    // y index
+    // sec2 834.796875
+    // sec3 1247.40625
+    // promotesec 2232.40625
+    // randgallerysec 3340.40625
+    // footersec 3748.46875
+
     let menu =  document.querySelector(".menu");
     let menuul = document.querySelector(".menu ul");
 
@@ -321,6 +328,9 @@ window.addEventListener('load', event => {
         // })
     })
     
+    // var splide = new Splide( '.sec-3' );
+    // splide.mount();
+
     // Instantiate `CircleType` with an HTML element.
     // changes the text to circle for the button in the hero section
     const circleType = new CircleType(document.querySelector('.play-button'));
@@ -331,5 +341,5 @@ window.addEventListener('load', event => {
     circletext.radius(180);
     circleType.radius().dir(-1);
 
-
+    
 })
