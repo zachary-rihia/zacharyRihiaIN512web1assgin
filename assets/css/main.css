@@ -4,6 +4,7 @@ body{
     background: #F2F2F2;
     margin: 0;
     font-family: "Zen Kurenaido", sans-serif;
+    overflow-x: hidden;
 }
 
 nav{
@@ -33,6 +34,7 @@ ul{
 hr{
     height: 3px;
     background: black;
+    width: 90vw;
 }
 
 h1{
@@ -164,7 +166,7 @@ h1{
     background-color: #eee;
     position: relative;
     padding: 0;
-    padding-top: 60px;
+    padding-top: 3rem;
 }
 
 .titleContainer{
@@ -335,7 +337,8 @@ h1{
     margin-bottom: 128px;
     position: absolute;
     top: -50px;
-    transform: rotate(30deg);
+    transform: rotate(40deg);
+    font-size: 1rem;
 }
 
 .container-gall{
@@ -356,6 +359,7 @@ h1{
 
 .galltext{
     align-items: center;
+    margin: 0;
 }
 
 .footer{

@@ -338,7 +338,7 @@ window.addEventListener('load', event => {
     let circletext = new CircleType(document.querySelector(".circle"));
 
     // Set the text radius and direction. Note: setter methods are chainable.
-    circletext.radius(180);
+    circletext.radius(100);
     circleType.radius().dir(-1);
 
     
