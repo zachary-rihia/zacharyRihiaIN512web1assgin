@@ -1,3 +1,9 @@
+// forces the page to load at the top so it does not glitch out and 
+// puts the page too far to the left
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
 window.addEventListener('load', event => {
 
     // y index
@@ -7,8 +13,36 @@ window.addEventListener('load', event => {
     // randgallerysec 3340.40625
     // footersec 3748.46875
 
+    // queryselectors
     let menu =  document.querySelector(".menu");
     let menuul = document.querySelector(".menu ul");
+    let normMenu = document.querySelectorAll(".normalMenu");
+
+    // 2nd section selectors
+    let sec2img = document.querySelectorAll(".sec-2-img")
+
+    //3rd section selectors
+    let science = document.querySelector(".scientific-name-block li");
+    let civi = document.querySelector(".civi-name li");
+    let animalinfo = document.querySelector(".animal-fact li");
+    let locationname = document.querySelector(".location-name li");
+    let mainpic = document.querySelectorAll(".mainpic img");
+    let leftpic = document.querySelectorAll(".leftpic img");
+    let righttop = document.querySelectorAll(".righttop img");
+    let rightmid = document.querySelectorAll(".rightmid img");
+    let rightbot = document.querySelectorAll(".rightbot img");
+    let rightarrow = document.querySelector(".right");
+    let leftarrow = document.querySelector(".left")
+    //3rd section selectors to put specific pictures for the search qurey into  
+    let pen = document.querySelectorAll(".pen");
+    let gura = document.querySelectorAll(".shark");
+    let dolph = document.querySelectorAll(".orca");
+    let barn = document.querySelectorAll(".owl");
+    let tigger = document.querySelectorAll(".tiger");
+    let seaturt = document.querySelectorAll(".turtle");
+
+    // selector for the promo animation
+    let promo = document.querySelectorAll(".row");
 
     //mobile menu system the comes up from the bottom of the screen
     document.querySelector("#mobile-cta").addEventListener("click", () => {
@@ -29,7 +63,6 @@ window.addEventListener('load', event => {
     let lastScrollPosition = 0;
     let ticking = false;
 
-    let sec2img = document.querySelectorAll(".sec-2-img")
     //selects all the imgs of the 2nd section to make them do all the same animation
     function callimg2(scrollPos){
 
@@ -54,16 +87,8 @@ window.addEventListener('load', event => {
         }
     });
 
-    
-    
-    let currleft = 0;
-    
-    //third section selectors
-    let science = document.querySelector(".scientific-name-block li");
-    let civi = document.querySelector(".civi-name li");
-    let animalinfo = document.querySelector(".animal-fact li");
-    let locationname = document.querySelector(".location-name li");
 
+    
     //arrays for the third section information
     let scienceArray = ["Rhincodon typus", "Aptenodytes forsteri", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
     let civiArray = ["Whale Shark", "Emperor Penguin", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
@@ -77,75 +102,102 @@ window.addEventListener('load', event => {
         "Antarctica, Norway, and Alaska", "North America, South America, Europe, Africa",
         "China, India, and Southwest Asia to the Indonesian island of Sumatra", "Atlantic, Pacific, and Indian Oceans"]
 
-    let mainpic = document.querySelectorAll(".mainpic img");
-    let leftpic = document.querySelectorAll(".leftpic img");
-    let righttop = document.querySelectorAll(".righttop img");
-    let rightmid = document.querySelectorAll(".rightmid img");
-    let rightbot = document.querySelectorAll(".rightbot img");
-
-    let currImg = 84;
+    // sets the zindex for each img in section 3
+    let currImg = 0;
+    mainpic[currImg%mainpic.length].style.zIndex = "2";
+    leftpic[currImg%mainpic.length].style.zIndex = "2";
+    righttop[currImg%mainpic.length].style.zIndex = "2";
+    rightmid[currImg%mainpic.length].style.zIndex = "2";
+    rightbot[currImg%mainpic.length].style.zIndex = "2";
 
     //flicks through the section 3 image gallery via the next button
-    document.querySelector(".right").addEventListener("click", () => {
-        currleft -= 100;
-       
-        mainpic[currImg%mainpic.length].style.display = "none";
-        leftpic[currImg%mainpic.length].style.display = "none";
-        righttop[currImg%mainpic.length].style.display = "none";
-        rightmid[currImg%mainpic.length].style.display = "none";
-        rightbot[currImg%mainpic.length].style.display = "none";
+    rightarrow.addEventListener("click", () => {
 
+        mainpic[currImg%mainpic.length].style.right = "100%";
+        leftpic[currImg%mainpic.length].style.right = "100%";
+        righttop[currImg%mainpic.length].style.right = "100%";
+        rightmid[currImg%mainpic.length].style.right = "100%";
+        rightbot[currImg%mainpic.length].style.right = "100%";
         currImg++;
-        
-        // mainpic.style.marginLeft = currleft + "%";
-        // leftpic.style.marginLeft = currleft + "%";
-        // righttop.style.marginLeft = currleft + "%";
-        // rightmid.style.marginLeft = currleft + "%";
-        // rightbot.style.marginLeft = currleft + "%";
+        mainpic[currImg%mainpic.length].style.zIndex = "1";
+        leftpic[currImg%mainpic.length].style.zIndex = "1";
+        righttop[currImg%mainpic.length].style.zIndex = "1";
+        rightmid[currImg%mainpic.length].style.zIndex = "1";
+        rightbot[currImg%mainpic.length].style.zIndex = "1";
 
-        mainpic[currImg%mainpic.length].style.display = "block";
-        leftpic[currImg%mainpic.length].style.display = "block";
-        righttop[currImg%mainpic.length].style.display = "block";
-        rightmid[currImg%mainpic.length].style.display = "block";
-        rightbot[currImg%mainpic.length].style.display = "block";
-        
-        //moves through the arrays above when clicking the button
-        science.innerHTML = scienceArray[currImg%mainpic.length];
-        civi.innerHTML = civiArray[currImg%mainpic.length];
-        // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
-        locationname.innerHTML = locationnameArray[currImg%mainpic.length];
+        mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
+            if(event.target.style.right != "0" && event.target.style.right != "0px"){
+                event.target.style.zIndex = "0";
+                event.target.style.right =  "0";
+                event.target.style.zIndex = "2";
 
-        
-    })
+                leftpic[currImg%mainpic.length].style.zIndex = "0";
+                righttop[currImg%mainpic.length].style.zIndex = "0";
+                rightmid[currImg%mainpic.length].style.zIndex = "0";
+                rightbot[currImg%mainpic.length].style.zIndex = "0";
 
+                leftpic[currImg%mainpic.length].style.right = "0";
+                righttop[currImg%mainpic.length].style.right = "0";
+                rightmid[currImg%mainpic.length].style.right = "0";
+                rightbot[currImg%mainpic.length].style.right = "0";
+
+                leftpic[currImg%mainpic.length].style.zIndex = "2";
+                righttop[currImg%mainpic.length].style.zIndex = "2";
+                rightmid[currImg%mainpic.length].style.zIndex = "2";
+                rightbot[currImg%mainpic.length].style.zIndex = "2";
+                
+                //moves through the arrays above when clicking the button
+                science.innerHTML = scienceArray[currImg%mainpic.length];
+                civi.innerHTML = civiArray[currImg%mainpic.length];
+                // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
+                locationname.innerHTML = locationnameArray[currImg%mainpic.length];
+            }
+        })
+    });
+    
     //flicks through the section 3 image gallery via the prev button
-    document.querySelector(".left").addEventListener("click", () => {
-        currleft += 100;
-        mainpic[currImg%mainpic.length].style.display = "none";
-        leftpic[currImg%mainpic.length].style.display = "none";
-        righttop[currImg%mainpic.length].style.display = "none";
-        rightmid[currImg%mainpic.length].style.display = "none";
-        rightbot[currImg%mainpic.length].style.display = "none";
-
+    leftarrow.addEventListener("click", () => {
         
-        if (currImg < 0) {
-            currImg = 6;
-        }
-        else{
-            currImg--;
-        }
-        
-        // mainpic.style.marginLeft = currleft + "%";
-        // leftpic.style.marginLeft = currleft + "%";
-        // righttop.style.marginLeft = currleft + "%";
-        // rightmid.style.marginLeft = currleft + "%";
-        // rightbot.style.marginLeft = currleft + "%";
+        mainpic[currImg%mainpic.length].style.right = "100%";
+        leftpic[currImg%mainpic.length].style.right = "100%";
+        righttop[currImg%mainpic.length].style.right = "100%";
+        rightmid[currImg%mainpic.length].style.right = "100%";
+        rightbot[currImg%mainpic.length].style.right = "100%";
+        currImg--;
+        mainpic[currImg%mainpic.length].style.zIndex = "1";
+        leftpic[currImg%mainpic.length].style.zIndex = "1";
+        righttop[currImg%mainpic.length].style.zIndex = "1";
+        rightmid[currImg%mainpic.length].style.zIndex = "1";
+        rightbot[currImg%mainpic.length].style.zIndex = "1";
 
-        mainpic[currImg%mainpic.length].style.display = "block";
-        leftpic[currImg%mainpic.length].style.display = "block";
-        righttop[currImg%mainpic.length].style.display = "block";
-        rightmid[currImg%mainpic.length].style.display = "block";
-        rightbot[currImg%mainpic.length].style.display = "block";
+        mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
+            if(event.target.style.right != "0" && event.target.style.right != "0px"){
+                event.target.style.zIndex = "0";
+                event.target.style.right =  "0";
+                event.target.style.zIndex = "2";
+
+                leftpic[currImg%mainpic.length].style.zIndex = "0";
+                righttop[currImg%mainpic.length].style.zIndex = "0";
+                rightmid[currImg%mainpic.length].style.zIndex = "0";
+                rightbot[currImg%mainpic.length].style.zIndex = "0";
+
+                leftpic[currImg%mainpic.length].style.right = "0";
+                righttop[currImg%mainpic.length].style.right = "0";
+                rightmid[currImg%mainpic.length].style.right = "0";
+                rightbot[currImg%mainpic.length].style.right = "0";
+
+                leftpic[currImg%mainpic.length].style.zIndex = "2";
+                righttop[currImg%mainpic.length].style.zIndex = "2";
+                rightmid[currImg%mainpic.length].style.zIndex = "2";
+                rightbot[currImg%mainpic.length].style.zIndex = "2";
+                
+                //moves through the arrays above when clicking the button
+                science.innerHTML = scienceArray[currImg%mainpic.length];
+                civi.innerHTML = civiArray[currImg%mainpic.length];
+                // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
+                locationname.innerHTML = locationnameArray[currImg%mainpic.length];
+            }
+        })
 
         //moves through the arrays above when clicking the button
         science.innerHTML = scienceArray[currImg%mainpic.length];
@@ -154,7 +206,7 @@ window.addEventListener('load', event => {
         locationname.innerHTML = locationnameArray[currImg%mainpic.length];
         
         
-    })
+    });
 
     //Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
     const API_KEY = "563492ad6f91700001000001b85c341905654b2a900ab901fecb6997";
@@ -169,14 +221,6 @@ window.addEventListener('load', event => {
     const tiger = {url:"tiger&per_page=5", animal:"tiger"};
     const turtle = {url:"sea%20turtle&per_page=5", animal:"turtle"};
     const shark = {url:"whale%20shark&per_page=5", animal:"shark"};
-
-    //third section selectors to put specific pictures for the search qurey into  
-    let pen = document.querySelectorAll(".pen");
-    let gura = document.querySelectorAll(".shark");
-    let dolph = document.querySelectorAll(".orca");
-    let barn = document.querySelectorAll(".owl");
-    let tigger = document.querySelectorAll(".tiger");
-    let seaturt = document.querySelectorAll(".turtle");
 
     // an array for the search quries 
     let queries = [penguin, orca, owl, tiger, turtle, shark];
@@ -203,8 +247,7 @@ window.addEventListener('load', event => {
 
         })();
     });
-
-
+    
     (async() => {
         let response = await fetch(imageUrl + "wildlife&per_page=6", {
             headers: {
@@ -229,8 +272,6 @@ window.addEventListener('load', event => {
         });
         
     })();
-
-    let normMenu = document.querySelectorAll(".normalMenu");
 
     //animation for the header menu
     normMenu.forEach((e) => {
@@ -263,7 +304,6 @@ window.addEventListener('load', event => {
 
     })
 
-    let promo = document.querySelectorAll(".row");
     let promoscroll = 60;
 
     //animation for the projects section
@@ -329,6 +369,9 @@ window.addEventListener('load', event => {
     
     // var splide = new Splide( '.sec-3' );
     // splide.mount();
+
+    // import Glide from '@glidejs/glide'
+    // new Glide('.sec-3').mount();
 
     // Instantiate `CircleType` with an HTML element.
     // changes the text to circle for the button in the hero section

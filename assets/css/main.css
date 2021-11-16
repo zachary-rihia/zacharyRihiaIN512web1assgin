@@ -1,181 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
 
-body{
-    background: #F2F2F2;
-    margin: 0;
-    font-family: "Zen Kurenaido", sans-serif;
-    overflow-x: hidden;
+/* global varibles*/
+body {
+  background: #f2f2f2;
+  margin: 0;
+  font-family: "Zen Kurenaido", sans-serif;
+  overflow-x: hidden;
+}
+nav {
+  display: none;
+}
+section {
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+hr {
+  height: 3px;
+  background: black;
+  width: 70rem;
+}
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.3rem;
+  margin-top: 0.2rem;
 }
 
-nav{
-    display: none;
+
+
+/* navbar section*/
+.navbar {
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.logo {
+  text-decoration: none;
+  color: black;
+  z-index: 60;
+}
+.container {
+  display: flex;
+  place-content: space-between;
+  align-items: center;
+}
+/* the visable menu that is on the desktop website*/
+.normalMenu {
+  cursor: pointer;
+}
+.letter {
+  pointer-events: none;
+}
+.normalMenu .letter {
+  display: inline-block;
+  line-height: 1rem;
+}
+.normalMenuContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+}
+/* what displays with the mobile version*/
+.mobile-menu {
+  opacity: 0;
+}
+.mobile-menu {
+  cursor: pointer;
+}
+/* what displays when you click the mobile menu*/
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  height: 50rem;
+  background: white;
+  z-index: 3;
+  transition: top 1s, border-radius 1.1s ease-out;
+  border-top-right-radius: 72%;
+  border-top-left-radius: 72%;
+  justify-content: space-between;
+}
+.mobile-exit-menu {
+  cursor: pointer;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-top: 2rem;
+}
+/* is the list for the mobile menu*/
+.menu ul {
+  opacity: 0;
+  transition: opacity 2s;
+  font-size: 500%;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: black;
+}
+.menu .contacts {
+  opacity: 0;
+  transition: opacity 2s;
+  font-size: 120%;
+  margin-top: 0;
+  margin-bottom: 15rem;
 }
 
-section{
-    padding-top: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+
+
+/* front page with a video and scrolling text*/
+.hero {
+  text-align: center;
+  background-color: #eee;
+  position: relative;
+  padding: 0;
+  padding-top: 3rem;
 }
-
-a:link{
-    text-decoration: none;
+/* title witch is a marquee*/
+.titleContainer {
+  position: absolute;
+  width: 100%;
+  padding-top: 2.54rem;
 }
-
-a:visited{
-    color: black;
-}
-
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-hr{
-    height: 3px;
-    background: black;
-    width: 70rem;
-}
-
-h1{
-    font-size: 2.5rem;
-    line-height: 1.3rem;
-    margin-top: .2rem;
-}
-
-.navbar{
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-.logo{
-    text-decoration: none;
-    color: black;
-    z-index: 60;
-}
-
-.container{
-    display: flex;
-    place-content: space-between;
-    align-items: center;
-}
-
-.container ul{
-    display: flex;
-    align-content: space-between;
-}
-
-.mobile-menu{
-    opacity: 0;
-
-}
-
-.menu{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 100%;
-    left:  0%;
-    width: 100%;
-    height: 50rem;
-    background: white;
-    z-index: 3;
-    transition: top 1s, border-radius 1.1s ease-out;
-    border-top-right-radius: 72%;
-    border-top-left-radius: 72%;
-    justify-content: space-between;
-}
-
-.mobile-exit-menu{
-    cursor: pointer;
-    margin-left: auto;
-    padding-right: 2rem;
-    padding-top: 2rem;
-}
-
-.menu ul{
-    opacity: 0;
-    transition: opacity 2s;
-    font-size: 500%;
-    margin-top: auto;
-    margin-bottom: auto;
-    color: black;
-    
-}
-
-.normalMenu{
-    cursor: pointer;
-}
-
-.letter{
-    pointer-events: none;
-}
-
-.normalMenu .letter{
-    display: inline-block;
-    line-height: 1rem;
-}
-
-.normalMenuContainer{
-    display: flex;
-    justify-content: space-evenly;
-    width: 30%;
-}
-
-.menu .contacts{
-    opacity: 0;
-    transition: opacity 2s;
-    font-size: 120%;
-    margin-top: 0;
-    margin-bottom: 15rem;
-}
-
-.mobile-menu{
-    cursor: pointer;
-}
-
-.video-container{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 6%;
-    bottom: 36%;
-}
-
-.video{
-    background-color: black;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    height: 100px;
-    width: 100px;
-    font-size: 16px;
-    margin: 4px 2px;
-    border-radius: 50%;
-    align-items: flex-end;
-    cursor: pointer;
-}
-
-.hero{
-    text-align: center;
-    background-color: #eee;
-    position: relative;
-    padding: 0;
-    padding-top: 3rem;
-}
-
-.titleContainer{
-    position: absolute;
-    width: 100%;
-    padding-top: 2.54rem;
-}
-
-.titleL{
+.titleL, .titleR{
     padding-bottom: 1.2rem;
     width: 100%;
     height: 100%;
@@ -185,224 +145,246 @@ h1{
     -moz-transform: translateX(100%);
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
-    -moz-animation: scroll-left 2s linear infinite;
-    -webkit-animation: scroll-left 2s linear infinite;
-    animation: scroll-left 20s linear infinite;
-    font-size: 4rem;
 }
-
-.titleR{
-    padding-bottom: 1.2rem;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    line-height: 50px;
-    text-align: center;
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-    -moz-animation: scroll-right 2s linear infinite;
-    -webkit-animation: scroll-right 2s linear infinite;
-    animation: scroll-right 20s linear infinite;
-    font-size: 4rem;
+.titleL {
+  -moz-animation: scroll-left 2s linear infinite;
+  -webkit-animation: scroll-left 2s linear infinite;
+  animation: scroll-left 20s linear infinite;
+  font-size: 4rem;
 }
-
-#second-sec{
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    margin: auto;
-    width: 25%;
+.titleR {
+  -moz-animation: scroll-right 2s linear infinite;
+  -webkit-animation: scroll-right 2s linear infinite;
+  animation: scroll-right 20s linear infinite;
+  font-size: 4rem;
 }
-
-.sec-2-img{
-    top: 100%;
-    transition: top 9s border-radius 60s ease-in-out ;
-    opacity: 0;
-    transition: opacity 2s;
-    border-radius: 100%;
-}
-
-.sec-2-text .letter{
-    display: inline-block;
-    line-height: 1rem;
-}
-
-.text-sec{
-    display: flex;
-    padding-top: 4.8rem;
-    padding-bottom: 4.8rem;
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0;
-    border: 0;
-    font-size: 1rem;
-    text-align: center;
-}
-
-#thrid-sec{
-    padding: 0;
-    margin: 0;
-}
-
-.sec-3{
-    background-color: #eee;
-    display: grid;
-    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    height: 60rem;
-}
-
-.sec-3 img{
-    width: 100%;
-    height: 100%;
-    transition: margin-left 0.4s;
-}
-
-.sec-3 div img:not(.pen){ display:none }
-
-.mainpic{
-    grid-area: 1 / 3 / span 5 / span 2;
-}
-
-.leftpic{
-    grid-area: 5 / 1 / span 2 / span 1;
-}
-
-.righttop{
-    grid-area: 2 / 6 / span 2 / span 1;
-}
-
-.rightmid{
-    grid-area: 4 / 7 / span 2;
-}
-
-.rightbot{
-    grid-area: 6 / 6 / span 2 / span 1;
-}
-
-.scientific-name-block{
-    grid-area:  5 / 6;
-}
-
-.civi-name{
-    grid-area: 6 / 4;
-}
-
-.animal-fact{
-    grid-area: 7 / 4;
-}
-
-.location-name{
-    writing-mode: vertical-rl;
-    grid-area: 2 / 2 / span 3;
-}
-
-.right{
-    grid-area: 7 / 7;
-}
-
-.left{
-    grid-area: 7 / 2;
-}
-
-.arrow{
-    height: 60px;
-    width: 100px;
-}
-
-.makersFacts{
-    width: 66.25rem;
-    margin: 0 auto;
-    padding: 12.5rem 0 6.25rem;
-}
-
-.row{
-    display: flex;
-    line-height: .5;
-    padding-bottom: 6rem;
-    padding-top: 5rem;
-    border-bottom-style: solid ;
-}
-
-.row div:nth-child(odd){
-    font-size: 7.8125rem;
-    width: 100%;
-    padding-right: 30rem;
-}
-
-.row div:nth-child(even){
-    width: 100%;
-}
-
-.heading3-title{
-    padding-left: .75rem;
-    font-size: 1.25rem;
-    text-transform: uppercase;
-}
-
-.bluecolour{
-    color: blue;
-}
-
-.circle{
-    display: inline-block;
-    margin-bottom: 128px;
-    position: absolute;
-    top: -50px;
-    transform: rotate(40deg);
-    font-size: 1rem;
-}
-
-.container-gall{
-    background-color: #eee;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    -webkit-box-align: center;
-    align-items: center;
-    padding-top: 3.125rem;
-    padding-bottom: 3rem;
-}
-
-.randomgallcontainer{
-    display: flex;
-}
-
-.galltext{
-    align-items: center;
-    margin: 0;
-}
-
-.footer{
-    margin: 3rem;
-}
-
-.containerfooter{
-    text-align: center;
-    padding-bottom: 3rem;
-    margin: 2rem;
-}
-
-.footertext{
-    position: relative;
-    padding-bottom: 4rem;
-}
-
-.footer-nav ul{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.footer-nav ul li:hover{
-    cursor: pointer;
-    color: blue;
-}
-
+/* the animated button*/
 .play-button {
-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+.video-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 6%;
+  bottom: 36%;
+}
+.video {
+  background-color: black;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+
+
+/* the 2nd section which has a mix of text and images*/
+#second-sec {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: auto;
+  width: 25%;
+}
+.text-sec {
+  display: flex;
+  padding-top: 4.8rem;
+  padding-bottom: 4.8rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  border: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+.sec-2-img {
+  top: 100%;
+  transition: top 9s border-radius 60s ease-in-out;
+  opacity: 0;
+  transition: opacity 2s;
+  border-radius: 100%;
+}
+.sec-2-text .letter {
+  display: inline-block;
+  line-height: 1rem;
+}
+
+
+
+/* the section which has images and information about the images*/
+#thrid-sec {
+  padding: 0;
+  margin: 0;
+}
+/* made it into a grid for easier placement of content*/
+.sec-3 {
+  background-color: #eee;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  height: 60rem;
+}
+/* animations for the images*/
+.sec-3 img {
+  width: 100%;
+  height: 100%;
+  transition: right 1s;
+}
+/* images*/
+.mainpic {
+  grid-area: 1 / 3 / span 5 / span 2;
+  position: relative;
+  overflow: hidden;
+}
+.leftpic, .righttop, .rightmid, .rightbot{
+  position: relative;
+  overflow: hidden;
+}
+.leftpic {
+  grid-area: 5 / 1 / span 2 / span 1;
+}
+.righttop {
+  grid-area: 2 / 6 / span 2 / span 1;
+}
+.rightmid {
+  grid-area: 4 / 7 / span 2;
+}
+.rightbot {
+  grid-area: 6 / 6 / span 2 / span 1;
+}
+.rightbot img, .righttop img, .leftpic img, .rightmid img, .mainpic img{
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+/* text part of the 3rd section*/
+.scientific-name-block {
+  grid-area: 5 / 6;
+}
+.civi-name {
+  grid-area: 6 / 4;
+}
+.animal-fact {
+  grid-area: 7 / 4;
+}
+.location-name {
+  writing-mode: vertical-rl;
+  grid-area: 2 / 2 / span 3;
+}
+/* the next and prev buttons for the 3rd section*/
+.arrow {
+  height: 60px;
+  width: 100px;
+}
+.right {
+  grid-area: 7 / 7;
+}
+.left {
+  grid-area: 7 / 2;
+}
+
+
+
+/* the 4th section which is used for promotion*/
+.makersFacts {
+  width: 66.25rem;
+  margin: 0 auto;
+  padding: 12.5rem 0 6.25rem;
+}
+/* each row of the section*/
+.row {
+  display: flex;
+  line-height: 0.5;
+  padding-bottom: 6rem;
+  padding-top: 5rem;
+  border-bottom-style: solid;
+}
+/* the numbers which are larger*/
+.row div:nth-child(odd) {
+  font-size: 7.8125rem;
+  width: 100%;
+  padding-right: 30rem;
+}
+/* the text which is spaced away from the number*/
+.row div:nth-child(even) {
+  width: 100%;
+}
+/* the a link at the bottom of the section*/
+.heading3-title {
+  padding-left: 0.75rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+
+
+/* 5th section which is just random images */
+.container-gall {
+  background-color: #eee;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-top: 3.125rem;
+  padding-bottom: 3rem;
+}
+.randomgallcontainer {
+  display: flex;
+}
+.galltext {
+  align-items: center;
+  margin: 0;
+}
+
+
+
+/* footer section*/
+.footer {
+  margin: 3rem;
+}
+.containerfooter {
+  text-align: center;
+  padding-bottom: 3rem;
+  margin: 2rem;
+}
+.footertext {
+  position: relative;
+  padding-bottom: 4rem;
+}
+/* changes the colour of a part of the text*/
+.bluecolour {
+  color: blue;
+}
+/* changes apart of the text to a circular shape*/
+.circle {
+  display: inline-block;
+  margin-bottom: 128px;
+  position: absolute;
+  top: -50px;
+  transform: rotate(40deg);
+  font-size: 1rem;
+}
+.footer-nav ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer-nav ul li:hover {
+  cursor: pointer;
+  color: blue;
 }
