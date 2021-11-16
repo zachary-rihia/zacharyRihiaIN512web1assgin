@@ -1,10 +1,7 @@
 @media screen and (max-width: 1020px){
     /* the navbar at the top of the screen*/
-    .mobile-cta{
-        opacity: 0;
-    }
-    .normalMenu{
-        opacity: 0;
+    .normalMenuContainer{
+        display: none;
     }
     .mobile-menu{
         opacity: 1;
@@ -20,9 +17,12 @@
     .container--hero{
         height: 50rem;
     }
-    /* .titlecontainer{
-        width: 100vw;
-    } */
+    hr{
+        width: 25rem;
+    }
+    .titlecontainer{
+        position: relative;
+    }
     .title{
         font-size: 2rem;
         padding: 0;
@@ -56,10 +56,12 @@
     .arrow{ display: none }
     
     /* projects section*/ 
+    .makersFacts{
+        width: 80%;
+    }
     .row{
         padding-bottom: 3rem;
         padding-top: 2rem;
-        width: 30%;
     }
     .row div:nth-child(odd){
         padding-right: 6rem;
