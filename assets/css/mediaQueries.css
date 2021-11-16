@@ -10,19 +10,19 @@
         opacity: 1;
     }
     .navbar{
-        width: 100vw;
+        width: 29.5rem;
     }
     .menu{
-        width: 90vw;
+        width: 29.5rem;
     }
 
     /* the hero section*/
     .container--hero{
-        height: 100vh;
+        height: 50rem;
     }
-    .titlecontainer{
+    /* .titlecontainer{
         width: 100vw;
-    }
+    } */
     .title{
         font-size: 2rem;
         padding: 0;
@@ -31,7 +31,7 @@
         right: 50%
     }
     video{
-        height: 100vh;
+        height: 55rem;
     }
 
     /* section 2 with the text and images together*/

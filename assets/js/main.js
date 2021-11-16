@@ -38,7 +38,6 @@ window.addEventListener('load', event => {
             img.style.opacity = 1;
             img.style.borderRadius = 0;
         })
-        
     }
 
     //scrolling event which makes the pictures appear on the 2nd section cutting off some of the words in the quote

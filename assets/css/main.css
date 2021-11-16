@@ -34,7 +34,7 @@ ul{
 hr{
     height: 3px;
     background: black;
-    width: 90vw;
+    width: 25rem;
 }
 
 h1{
@@ -80,7 +80,7 @@ h1{
     top: 100%;
     left:  0%;
     width: 100%;
-    height: 100vh;
+    height: 50rem;
     background: white;
     z-index: 3;
     transition: top 1s, border-radius 1.1s ease-out;
@@ -237,7 +237,7 @@ h1{
     overflow: hidden;
     border: 0;
     padding: 0;
-    height: 100vh;
+    height: 60rem;
 }
 
 .sec-3 img{
