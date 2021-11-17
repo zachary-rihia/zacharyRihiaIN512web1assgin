@@ -20,6 +20,7 @@ window.addEventListener('load', event => {
 
     // 2nd section selectors
     let sec2img = document.querySelectorAll(".sec-2-img")
+    let imgsec2 = document.querySelectorAll(".img-wrap2")
 
     //3rd section selectors
     let science = document.querySelector(".scientific-name-block li");
@@ -44,6 +45,12 @@ window.addEventListener('load', event => {
     // selector for the promo animation
     let promo = document.querySelectorAll(".row");
 
+    // selector for the 5th section
+    let gallery = document.querySelectorAll(".randomgallery")
+
+
+    // *********** menu/navbar *********** //
+
     //mobile menu system the comes up from the bottom of the screen
     document.querySelector("#mobile-cta").addEventListener("click", () => {
         menu.style.top = 0;
@@ -59,6 +66,9 @@ window.addEventListener('load', event => {
         menu.style.top = "100%";
         menuul.style.opacity = 0;
     })
+
+
+    // *********** section 2 *********** //
 
     let lastScrollPosition = 0;
     let ticking = false;
@@ -88,7 +98,8 @@ window.addEventListener('load', event => {
     });
 
 
-    
+    // *********** section 3 *********** //
+
     //arrays for the third section information
     let scienceArray = ["Rhincodon typus", "Aptenodytes forsteri", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
     let civiArray = ["Whale Shark", "Emperor Penguin", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
@@ -102,8 +113,10 @@ window.addEventListener('load', event => {
         "Antarctica, Norway, and Alaska", "North America, South America, Europe, Africa",
         "China, India, and Southwest Asia to the Indonesian island of Sumatra", "Atlantic, Pacific, and Indian Oceans"]
 
-    // sets the zindex for each img in section 3
+    // for array number
     let currImg = 0;
+    
+    // sets the zindex for each img in section 3
     mainpic[currImg%mainpic.length].style.zIndex = "2";
     leftpic[currImg%mainpic.length].style.zIndex = "2";
     righttop[currImg%mainpic.length].style.zIndex = "2";
@@ -113,18 +126,22 @@ window.addEventListener('load', event => {
     //flicks through the section 3 image gallery via the next button
     rightarrow.addEventListener("click", () => {
 
+        // moves the image to the right so its hidden
         mainpic[currImg%mainpic.length].style.right = "100%";
         leftpic[currImg%mainpic.length].style.right = "100%";
         righttop[currImg%mainpic.length].style.right = "100%";
         rightmid[currImg%mainpic.length].style.right = "100%";
         rightbot[currImg%mainpic.length].style.right = "100%";
-        currImg++;
+        // sets zindex to 1 so the next photo is underneath
         mainpic[currImg%mainpic.length].style.zIndex = "1";
         leftpic[currImg%mainpic.length].style.zIndex = "1";
         righttop[currImg%mainpic.length].style.zIndex = "1";
         rightmid[currImg%mainpic.length].style.zIndex = "1";
         rightbot[currImg%mainpic.length].style.zIndex = "1";
+        //ups the array number
+        currImg++;
 
+        // looks for transtions then puts the next image up top
         mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
             if(event.target.style.right != "0" && event.target.style.right != "0px"){
                 event.target.style.zIndex = "0";
@@ -158,18 +175,22 @@ window.addEventListener('load', event => {
     //flicks through the section 3 image gallery via the prev button
     leftarrow.addEventListener("click", () => {
         
+        // moves the image to the right so its hidden
         mainpic[currImg%mainpic.length].style.right = "100%";
         leftpic[currImg%mainpic.length].style.right = "100%";
         righttop[currImg%mainpic.length].style.right = "100%";
         rightmid[currImg%mainpic.length].style.right = "100%";
         rightbot[currImg%mainpic.length].style.right = "100%";
-        currImg--;
+        // sets zindex to 1 so the next photo is underneath
         mainpic[currImg%mainpic.length].style.zIndex = "1";
         leftpic[currImg%mainpic.length].style.zIndex = "1";
         righttop[currImg%mainpic.length].style.zIndex = "1";
         rightmid[currImg%mainpic.length].style.zIndex = "1";
         rightbot[currImg%mainpic.length].style.zIndex = "1";
+        //ups the array number
+        currImg--;
 
+        // looks for transtions then puts the next image up top
         mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
             if(event.target.style.right != "0" && event.target.style.right != "0px"){
                 event.target.style.zIndex = "0";
@@ -198,15 +219,11 @@ window.addEventListener('load', event => {
                 locationname.innerHTML = locationnameArray[currImg%mainpic.length];
             }
         })
-
-        //moves through the arrays above when clicking the button
-        science.innerHTML = scienceArray[currImg%mainpic.length];
-        civi.innerHTML = civiArray[currImg%mainpic.length];
-        // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
-        locationname.innerHTML = locationnameArray[currImg%mainpic.length];
-        
         
     });
+
+
+    // *********** Asyncs *********** //
 
     //Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
     const API_KEY = "563492ad6f91700001000001b85c341905654b2a900ab901fecb6997";
@@ -247,8 +264,10 @@ window.addEventListener('load', event => {
 
         })();
     });
-    
+
+    // async for the random images in the 2nd section and the 5th section 
     (async() => {
+        // is 6 per page as there is 6 in the 2nd section
         let response = await fetch(imageUrl + "wildlife&per_page=6", {
             headers: {
                 Authorization: API_KEY
@@ -258,7 +277,6 @@ window.addEventListener('load', event => {
         let data = await response.json();
         
         let imgurl = data.photos;
-        let imgsec2 = document.querySelectorAll(".img-wrap2")
 
         // places all the imgs into the second section
         imgsec2.forEach((e,i) => {
@@ -266,12 +284,13 @@ window.addEventListener('load', event => {
         })
 
         // grabs imgs for the last section
-        let gallery = document.querySelectorAll(".randomgallery")
         gallery.forEach((e,i) => {
             e.src = imgurl[i].src.medium;
         });
         
     })();
+
+    // *********** animation *********** //
 
     //animation for the header menu
     normMenu.forEach((e) => {

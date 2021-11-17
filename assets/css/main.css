@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
 
-/* global varibles*/
+/********** global varibles ***********/
 body {
   background: #f2f2f2;
   margin: 0;
@@ -39,7 +39,8 @@ h1 {
 
 
 
-/* navbar section*/
+/*********** navbar section **********/
+
 .navbar {
   padding: 1rem;
   position: fixed;
@@ -121,7 +122,8 @@ h1 {
 
 
 
-/* front page with a video and scrolling text*/
+/*********** front page with a video and scrolling text/hero section ************/
+
 .hero {
   text-align: center;
   background-color: #eee;
@@ -187,7 +189,7 @@ h1 {
 
 
 
-/* the 2nd section which has a mix of text and images*/
+/************** the 2nd section which has a mix of text and images **************/
 #second-sec {
   display: flex;
   align-items: center;
@@ -221,7 +223,7 @@ h1 {
 
 
 
-/* the section which has images and information about the images*/
+/************* the section which has images and information about the images *************/
 #thrid-sec {
   padding: 0;
   margin: 0;
@@ -299,7 +301,7 @@ h1 {
 
 
 
-/* the 4th section which is used for promotion*/
+/**************** the 4th section which is used for promotion *****************/
 .makersFacts {
   width: 66.25rem;
   margin: 0 auto;
@@ -332,7 +334,7 @@ h1 {
 
 
 
-/* 5th section which is just random images */
+/*************** 5th section which is just random images *****************/
 .container-gall {
   background-color: #eee;
   display: flex;
@@ -354,7 +356,7 @@ h1 {
 
 
 
-/* footer section*/
+/************** footer section ***************/
 .footer {
   margin: 3rem;
 }
