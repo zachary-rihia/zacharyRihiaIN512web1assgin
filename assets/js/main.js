@@ -127,32 +127,35 @@ window.addEventListener('load', event => {
         righttop[currImg%mainpic.length].style.right = "100%";
         rightmid[currImg%mainpic.length].style.right = "100%";
         rightbot[currImg%mainpic.length].style.right = "100%";
+        
+        // ups the array number
+        currImg++;
+        
         // sets zindex to 1 so the next photo is underneath
         mainpic[currImg%mainpic.length].style.zIndex = "1";
         leftpic[currImg%mainpic.length].style.zIndex = "1";
         righttop[currImg%mainpic.length].style.zIndex = "1";
         rightmid[currImg%mainpic.length].style.zIndex = "1";
         rightbot[currImg%mainpic.length].style.zIndex = "1";
-        // ups the array number
-        currImg++;
+        
 
-        // looks for transtions then puts the next image up top
-        mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
-            if(event.target.style.right != "0" && event.target.style.right != "0px"){
-                event.target.style.zIndex = "0";
-                event.target.style.right =  "0";
-                event.target.style.zIndex = "2";
+        // looks for transtions then puts the next image on top
+        mainpic[currImg-1%mainpic.length].addEventListener('transitionend', (event) =>{
+            if(event.target.style.right != "0" && event.target.style.right != "0px"){                
 
-                leftpic[currImg%mainpic.length].style.zIndex = "0";
-                righttop[currImg%mainpic.length].style.zIndex = "0";
-                rightmid[currImg%mainpic.length].style.zIndex = "0";
-                rightbot[currImg%mainpic.length].style.zIndex = "0";
+                mainpic[currImg-1%mainpic.length].style.zIndex = "0";
+                leftpic[currImg-1%mainpic.length].style.zIndex = "0";
+                righttop[currImg-1%mainpic.length].style.zIndex = "0";
+                rightmid[currImg-1%mainpic.length].style.zIndex = "0";
+                rightbot[currImg-1%mainpic.length].style.zIndex = "0";
 
-                leftpic[currImg%mainpic.length].style.right = "0";
-                righttop[currImg%mainpic.length].style.right = "0";
-                rightmid[currImg%mainpic.length].style.right = "0";
-                rightbot[currImg%mainpic.length].style.right = "0";
+                mainpic[currImg-1%mainpic.length].style.right = "0";
+                leftpic[currImg-1%mainpic.length].style.right = "0";
+                righttop[currImg-1%mainpic.length].style.right = "0";
+                rightmid[currImg-1%mainpic.length].style.right = "0";
+                rightbot[currImg-1%mainpic.length].style.right = "0";
 
+                mainpic[currImg%mainpic.length].style.zIndex = "2";
                 leftpic[currImg%mainpic.length].style.zIndex = "2";
                 righttop[currImg%mainpic.length].style.zIndex = "2";
                 rightmid[currImg%mainpic.length].style.zIndex = "2";
@@ -176,32 +179,34 @@ window.addEventListener('load', event => {
         righttop[currImg%mainpic.length].style.right = "100%";
         rightmid[currImg%mainpic.length].style.right = "100%";
         rightbot[currImg%mainpic.length].style.right = "100%";
+
+        //lowers the array number
+        currImg--;
+
         // sets zindex to 1 so the next photo is underneath
         mainpic[currImg%mainpic.length].style.zIndex = "1";
         leftpic[currImg%mainpic.length].style.zIndex = "1";
         righttop[currImg%mainpic.length].style.zIndex = "1";
         rightmid[currImg%mainpic.length].style.zIndex = "1";
         rightbot[currImg%mainpic.length].style.zIndex = "1";
-        //ups the array number
-        currImg--;
-
-        // looks for transtions then puts the next image up top
-        mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
+        
+        // looks for transtions then puts the next image on top
+        mainpic[currImg+1%mainpic.length].addEventListener('transitionend', (event) =>{
             if(event.target.style.right != "0" && event.target.style.right != "0px"){
-                event.target.style.zIndex = "0";
-                event.target.style.right =  "0";
-                event.target.style.zIndex = "2";
 
-                leftpic[currImg%mainpic.length].style.zIndex = "0";
-                righttop[currImg%mainpic.length].style.zIndex = "0";
-                rightmid[currImg%mainpic.length].style.zIndex = "0";
-                rightbot[currImg%mainpic.length].style.zIndex = "0";
+                mainpic[currImg+1%mainpic.length].style.zIndex = "0";
+                leftpic[currImg+1%mainpic.length].style.zIndex = "0";
+                righttop[currImg+1%mainpic.length].style.zIndex = "0";
+                rightmid[currImg+1%mainpic.length].style.zIndex = "0";
+                rightbot[currImg+1%mainpic.length].style.zIndex = "0";
 
-                leftpic[currImg%mainpic.length].style.right = "0";
-                righttop[currImg%mainpic.length].style.right = "0";
-                rightmid[currImg%mainpic.length].style.right = "0";
-                rightbot[currImg%mainpic.length].style.right = "0";
+                mainpic[currImg+1%mainpic.length].style.right = "0";
+                leftpic[currImg+1%mainpic.length].style.right = "0";
+                righttop[currImg+1%mainpic.length].style.right = "0";
+                rightmid[currImg+1%mainpic.length].style.right = "0";
+                rightbot[currImg+1%mainpic.length].style.right = "0";
 
+                mainpic[currImg%mainpic.length].style.zIndex = "2";
                 leftpic[currImg%mainpic.length].style.zIndex = "2";
                 righttop[currImg%mainpic.length].style.zIndex = "2";
                 rightmid[currImg%mainpic.length].style.zIndex = "2";
@@ -262,7 +267,7 @@ window.addEventListener('load', event => {
 
     // async for the random images in the 2nd section and the 5th section 
     (async() => {
-        // is 6 per page as there is 6 in the 2nd section
+        // is 6 per page as there is 6 imgs in the 2nd section
         let response = await fetch(imageUrl + "wildlife&per_page=6", {
             headers: {
                 Authorization: API_KEY
@@ -341,69 +346,6 @@ window.addEventListener('load', event => {
             });
         });
 
-    })
-
-    let promoscroll = 60;
-
-    //animation for the projects section
-    promo.forEach((e) => {
-        // e.innerHTML = e.textContent.replace(/\S/g, "<span class='promo'>$&</span>");
-
-       
-            // anime.timeline({loop: true})
-            // .add({
-            //   targets: '.row .line',
-            //   scaleX: [0,1],
-            //   opacity: [0.5,1],
-            //   easing: "easeInOutExpo",
-            //   duration: 900
-            // }).add({
-            //   targets: '.row .promo',
-            //   opacity: [0,1],
-            //   translateX: [40,0],
-            //   translateZ: 0,
-            //   scaleX: [0.3, 1],
-            //   easing: "easeOutExpo",
-            //   duration: 800,
-            //   offset: '-=600',
-            //   delay: (el, i) => 150 + 25 * i
-            // }).add({
-            //   targets: '.row',
-            //   opacity: 0,
-            //   duration: 1000,
-            //   easing: "easeOutExpo",
-            //   delay: 1000
-            // });
-        
-
-        // e.addEventListener("scroll", () => {
-        //     if (window.screenY == promoscroll) {
-        //         anime.timeline({loop: true})
-        //         .add({
-        //           targets: '.makerfact .line',
-        //           scaleX: [0,1],
-        //           opacity: [0.5,1],
-        //           easing: "easeInOutExpo",
-        //           duration: 900
-        //         }).add({
-        //           targets: '.makerfact .promo',
-        //           opacity: [0,1],
-        //           translateX: [40,0],
-        //           translateZ: 0,
-        //           scaleX: [0.3, 1],
-        //           easing: "easeOutExpo",
-        //           duration: 800,
-        //           offset: '-=600',
-        //           delay: (el, i) => 150 + 25 * i
-        //         }).add({
-        //           targets: '.makerfact',
-        //           opacity: 0,
-        //           duration: 1000,
-        //           easing: "easeOutExpo",
-        //           delay: 1000
-        //         });
-        //     }
-        // })
     })
     
     // var splide = new Splide( '.sec-3' );
