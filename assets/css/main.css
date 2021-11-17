@@ -219,7 +219,7 @@ h1 {
 }
 .sec-2-img {
   top: 100%;
-  transition: top 9s border-radius 60s ease-in-out;
+  transition: top 9s ease-in-out;
   opacity: 0;
   transition: opacity 2s;
   border-radius: 100%;
@@ -258,9 +258,14 @@ h1 {
   position: relative;
   overflow: hidden;
 }
-.leftpic, .righttop, .rightmid, .rightbot{
+.mainpic, .leftpic, .righttop, .rightmid, .rightbot{
   position: relative;
   overflow: hidden;
+  transition: transform .2s ease;
+}
+/* zooms on hover */
+.mainpic:hover, .leftpic:hover, .righttop:hover, .rightmid:hover, .rightbot:hover{
+  transform: scale(1.25);
 }
 .leftpic {
   grid-area: 5 / 1 / span 2 / span 1;
