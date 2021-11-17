@@ -42,6 +42,8 @@ window.addEventListener('load', event => {
 
     // selector for the 5th section
     let gallery = document.querySelectorAll(".randomgallery");
+    let imgGallery = document.querySelectorAll(".randomgallcontainer img");
+    console.log(imgGallery);
 
 
     // *********** menu/navbar *********** //
@@ -118,8 +120,81 @@ window.addEventListener('load', event => {
     rightmid[currImg%mainpic.length].style.zIndex = "2";
     rightbot[currImg%mainpic.length].style.zIndex = "2";
 
+    let transitioning = false;
+
     // flicks through the section 3 image gallery via the next button
     rightarrow.addEventListener("click", () => {
+
+        if(!transitioning){
+            transitioning = true;
+            // moves the image to the right so its hidden
+            mainpic[currImg%mainpic.length].style.right = "100%";
+            leftpic[currImg%mainpic.length].style.right = "100%";
+            righttop[currImg%mainpic.length].style.right = "100%";
+            rightmid[currImg%mainpic.length].style.right = "100%";
+            rightbot[currImg%mainpic.length].style.right = "100%";
+            
+            // ups the array number
+            currImg++;
+            
+            // sets zindex to 1 so the next photo is underneath
+            mainpic[currImg%mainpic.length].style.zIndex = "1";
+            leftpic[currImg%mainpic.length].style.zIndex = "1";
+            righttop[currImg%mainpic.length].style.zIndex = "1";
+            rightmid[currImg%mainpic.length].style.zIndex = "1";
+            rightbot[currImg%mainpic.length].style.zIndex = "1";
+            
+
+            if(currImg === 7){
+                currImg = 1;
+            }
+            console.log(currImg, mainpic.length, currImg-1%mainpic.length)
+
+            // looks for transtions then puts the next image on top
+            mainpic[currImg-1%mainpic.length].addEventListener('transitionend', (event) =>{
+                if(event.target.style.right != "0" && event.target.style.right != "0px"){                
+
+                    // setting the zindex of the last img back to 0
+                    mainpic[currImg-1%mainpic.length].style.zIndex = "0";
+                    leftpic[currImg-1%mainpic.length].style.zIndex = "0";
+                    righttop[currImg-1%mainpic.length].style.zIndex = "0";
+                    rightmid[currImg-1%mainpic.length].style.zIndex = "0";
+                    rightbot[currImg-1%mainpic.length].style.zIndex = "0";
+
+                    // setting the right of the last img back to 0
+                    mainpic[currImg-1%mainpic.length].style.right = "0";
+                    leftpic[currImg-1%mainpic.length].style.right = "0";
+                    righttop[currImg-1%mainpic.length].style.right = "0";
+                    rightmid[currImg-1%mainpic.length].style.right = "0";
+                    rightbot[currImg-1%mainpic.length].style.right = "0";
+
+                    // putting the current img at the top of the stack
+                    mainpic[currImg%mainpic.length].style.zIndex = "2";
+                    leftpic[currImg%mainpic.length].style.zIndex = "2";
+                    righttop[currImg%mainpic.length].style.zIndex = "2";
+                    rightmid[currImg%mainpic.length].style.zIndex = "2";
+                    rightbot[currImg%mainpic.length].style.zIndex = "2";
+                    
+                    // moves through the arrays above when clicking the button
+                    science.innerHTML = scienceArray[currImg%mainpic.length];
+                    civi.innerHTML = civiArray[currImg%mainpic.length];
+                    // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
+                    locationname.innerHTML = locationnameArray[currImg%mainpic.length];
+                    transitioning = false;
+                }
+            })
+        }
+    });
+    
+    // flicks through the section 3 image gallery via the prev button
+    leftarrow.addEventListener("click", () => {
+
+        //lowers the array number
+        currImg--;
+
+        if(currImg === -1){
+            currImg = 5;
+        }
 
         // moves the image to the right so its hidden
         mainpic[currImg%mainpic.length].style.right = "100%";
@@ -127,90 +202,39 @@ window.addEventListener('load', event => {
         righttop[currImg%mainpic.length].style.right = "100%";
         rightmid[currImg%mainpic.length].style.right = "100%";
         rightbot[currImg%mainpic.length].style.right = "100%";
-        
-        // ups the array number
-        currImg++;
-        
+
         // sets zindex to 1 so the next photo is underneath
         mainpic[currImg%mainpic.length].style.zIndex = "1";
         leftpic[currImg%mainpic.length].style.zIndex = "1";
         righttop[currImg%mainpic.length].style.zIndex = "1";
         rightmid[currImg%mainpic.length].style.zIndex = "1";
         rightbot[currImg%mainpic.length].style.zIndex = "1";
-        
 
+        console.log(currImg, mainpic.length, currImg+1%mainpic.length)
         // looks for transtions then puts the next image on top
-        mainpic[currImg-1%mainpic.length].addEventListener('transitionend', (event) =>{
-            if(event.target.style.right != "0" && event.target.style.right != "0px"){                
+        mainpic[currImg+1%mainpic.length].addEventListener('transitionend', (event) =>{
+            if(event.target.style.right != "100%" /*&& event.target.style.right != "0px"*/){
 
-                mainpic[currImg-1%mainpic.length].style.zIndex = "0";
-                leftpic[currImg-1%mainpic.length].style.zIndex = "0";
-                righttop[currImg-1%mainpic.length].style.zIndex = "0";
-                rightmid[currImg-1%mainpic.length].style.zIndex = "0";
-                rightbot[currImg-1%mainpic.length].style.zIndex = "0";
-
-                mainpic[currImg-1%mainpic.length].style.right = "0";
-                leftpic[currImg-1%mainpic.length].style.right = "0";
-                righttop[currImg-1%mainpic.length].style.right = "0";
-                rightmid[currImg-1%mainpic.length].style.right = "0";
-                rightbot[currImg-1%mainpic.length].style.right = "0";
-
+                // putting the current img at the top of the stack
                 mainpic[currImg%mainpic.length].style.zIndex = "2";
                 leftpic[currImg%mainpic.length].style.zIndex = "2";
                 righttop[currImg%mainpic.length].style.zIndex = "2";
                 rightmid[currImg%mainpic.length].style.zIndex = "2";
                 rightbot[currImg%mainpic.length].style.zIndex = "2";
-                
-                // moves through the arrays above when clicking the button
-                science.innerHTML = scienceArray[currImg%mainpic.length];
-                civi.innerHTML = civiArray[currImg%mainpic.length];
-                // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
-                locationname.innerHTML = locationnameArray[currImg%mainpic.length];
-            }
-        })
-    });
-    
-    // flicks through the section 3 image gallery via the prev button
-    leftarrow.addEventListener("click", () => {
-        
-        // moves the image to the right so its hidden
-        mainpic[currImg%mainpic.length].style.right = "100%";
-        leftpic[currImg%mainpic.length].style.right = "100%";
-        righttop[currImg%mainpic.length].style.right = "100%";
-        rightmid[currImg%mainpic.length].style.right = "100%";
-        rightbot[currImg%mainpic.length].style.right = "100%";
 
-        //lowers the array number
-        currImg--;
+                // setting the right of the last img back to 0
+                mainpic[currImg%mainpic.length].style.right = "0";
+                leftpic[currImg%mainpic.length].style.right = "0";
+                righttop[currImg%mainpic.length].style.right = "0";
+                rightmid[currImg%mainpic.length].style.right = "0";
+                rightbot[currImg%mainpic.length].style.right = "0";
 
-        // sets zindex to 1 so the next photo is underneath
-        mainpic[currImg%mainpic.length].style.zIndex = "1";
-        leftpic[currImg%mainpic.length].style.zIndex = "1";
-        righttop[currImg%mainpic.length].style.zIndex = "1";
-        rightmid[currImg%mainpic.length].style.zIndex = "1";
-        rightbot[currImg%mainpic.length].style.zIndex = "1";
-        
-        // looks for transtions then puts the next image on top
-        mainpic[currImg+1%mainpic.length].addEventListener('transitionend', (event) =>{
-            if(event.target.style.right != "0" && event.target.style.right != "0px"){
-
+                // setting the zindex of the last img back to 0
                 mainpic[currImg+1%mainpic.length].style.zIndex = "0";
                 leftpic[currImg+1%mainpic.length].style.zIndex = "0";
                 righttop[currImg+1%mainpic.length].style.zIndex = "0";
                 rightmid[currImg+1%mainpic.length].style.zIndex = "0";
                 rightbot[currImg+1%mainpic.length].style.zIndex = "0";
-
-                mainpic[currImg+1%mainpic.length].style.right = "0";
-                leftpic[currImg+1%mainpic.length].style.right = "0";
-                righttop[currImg+1%mainpic.length].style.right = "0";
-                rightmid[currImg+1%mainpic.length].style.right = "0";
-                rightbot[currImg+1%mainpic.length].style.right = "0";
-
-                mainpic[currImg%mainpic.length].style.zIndex = "2";
-                leftpic[currImg%mainpic.length].style.zIndex = "2";
-                righttop[currImg%mainpic.length].style.zIndex = "2";
-                rightmid[currImg%mainpic.length].style.zIndex = "2";
-                rightbot[currImg%mainpic.length].style.zIndex = "2";
                 
                 // moves through the arrays above when clicking the button
                 science.innerHTML = scienceArray[currImg%mainpic.length];
@@ -312,10 +336,24 @@ window.addEventListener('load', event => {
         })
     }, settings)
 
+    // makes the random gallery come from the left
+    const left = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("moverLeft");
+                observer.unobserve(entry.target);
+            }
+        })
+    }, settings)
+
     // checks for when each section hits the observer
     sections.forEach(sec3 => {
         io.observe(sec3);
     });
+
+    imgGallery.forEach(img => {
+        left.observe(img);
+    })
 
     // animation for the header menu
     normMenu.forEach((e) => {

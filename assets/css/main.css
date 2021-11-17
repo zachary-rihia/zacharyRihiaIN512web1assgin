@@ -358,6 +358,13 @@ h1 {
 }
 .randomgallcontainer {
   display: flex;
+  overflow: hidden;
+  left: 100%;
+  position: relative;
+  transition: left 3s;
+}
+.moveLeft{
+  left: 0;
 }
 .galltext {
   align-items: center;
