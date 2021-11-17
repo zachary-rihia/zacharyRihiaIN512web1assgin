@@ -1,5 +1,6 @@
 @media screen and (max-width: 1020px){
-    /* the navbar at the top of the screen*/
+    /****** the navbar at the top of the screen ******/
+
     .normalMenuContainer{
         display: none;
     }
@@ -13,7 +14,9 @@
         width: 29.5rem;
     }
 
-    /* the hero section*/
+
+    /****** the hero section ******/
+    
     .container--hero{
         height: 50rem;
     }
@@ -34,12 +37,16 @@
         height: 55rem;
     }
 
-    /* section 2 with the text and images together*/
+
+    /****** section 2 with the text and images together ******/
+
     #second-sec{
         width: 70%;
     }
 
-    /* section 3 with the images and information on the images*/
+
+    /****** section 3 with the images and information on the images ******/
+
     .sec-3{
         grid-template: .5fr 4fr / .5fr 1fr 1fr 1fr .5fr;
     }
@@ -58,7 +65,9 @@
     .location-name{display: none;}
     .arrow{ display: none }
     
-    /* projects section*/ 
+
+    /****** projects section ******/ 
+
     .makersFacts{
         width: 80%;
     }
@@ -74,7 +83,9 @@
         font-size: .75rem;
     }
 
-    /* gallery section*/
+
+    /****** gallery section ******/
+
     .randomgallcontainer{
         width: 100%;
         overflow: hidden;

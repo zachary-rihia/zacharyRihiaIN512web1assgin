@@ -14,6 +14,14 @@ section {
   padding-top: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
+  opacity: 0;
+  top: 100%;
+  transition: opacity 1s ease-in;
+  transition: top 15s ease-in-out ;
+}
+.appear{
+  opacity: 1;
+  top: 0;
 }
 a:link {
   text-decoration: none;
@@ -222,12 +230,12 @@ h1 {
 }
 
 
-
 /************* the section which has images and information about the images *************/
 #thrid-sec {
   padding: 0;
   margin: 0;
 }
+
 /* made it into a grid for easier placement of content*/
 .sec-3 {
   background-color: #eee;

@@ -6,23 +6,18 @@ window.onbeforeunload = function () {
 
 window.addEventListener('load', event => {
 
-    // y index
-    // sec2 834.796875
-    // sec3 1247.40625
-    // promotesec 2232.40625
-    // randgallerysec 3340.40625
-    // footersec 3748.46875
-
     // queryselectors
     let menu =  document.querySelector(".menu");
     let menuul = document.querySelector(".menu ul");
     let normMenu = document.querySelectorAll(".normalMenu");
+    let sections = document.querySelectorAll("section");
 
     // 2nd section selectors
-    let sec2img = document.querySelectorAll(".sec-2-img")
-    let imgsec2 = document.querySelectorAll(".img-wrap2")
+    let sec2ani = document.querySelectorAll(".letter, .sec-2-img");
+    let sec2img = document.querySelectorAll(".sec-2-img");
+    let imgsec2 = document.querySelectorAll(".img-wrap2");
 
-    //3rd section selectors
+    // 3rd section selectors
     let science = document.querySelector(".scientific-name-block li");
     let civi = document.querySelector(".civi-name li");
     let animalinfo = document.querySelector(".animal-fact li");
@@ -33,8 +28,8 @@ window.addEventListener('load', event => {
     let rightmid = document.querySelectorAll(".rightmid img");
     let rightbot = document.querySelectorAll(".rightbot img");
     let rightarrow = document.querySelector(".right");
-    let leftarrow = document.querySelector(".left")
-    //3rd section selectors to put specific pictures for the search qurey into  
+    let leftarrow = document.querySelector(".left");
+    // 3rd section selectors to put specific pictures for the search qurey into  
     let pen = document.querySelectorAll(".pen");
     let gura = document.querySelectorAll(".shark");
     let dolph = document.querySelectorAll(".orca");
@@ -46,12 +41,12 @@ window.addEventListener('load', event => {
     let promo = document.querySelectorAll(".row");
 
     // selector for the 5th section
-    let gallery = document.querySelectorAll(".randomgallery")
+    let gallery = document.querySelectorAll(".randomgallery");
 
 
     // *********** menu/navbar *********** //
 
-    //mobile menu system the comes up from the bottom of the screen
+    // mobile menu system the comes up from the bottom of the screen
     document.querySelector("#mobile-cta").addEventListener("click", () => {
         menu.style.top = 0;
         menuul.style.opacity = 1;
@@ -61,7 +56,7 @@ window.addEventListener('load', event => {
         document.querySelector(".footer-nav-bar").style.zIndex = 4;
     })
 
-    //the mobile exit button that makes the menu go back from where it came
+    // the mobile exit button that makes the menu go back from where it came
     document.querySelector("#mobile-exit").addEventListener("click", () => {
         menu.style.top = "100%";
         menuul.style.opacity = 0;
@@ -73,7 +68,7 @@ window.addEventListener('load', event => {
     let lastScrollPosition = 0;
     let ticking = false;
 
-    //selects all the imgs of the 2nd section to make them do all the same animation
+    // selects all the imgs of the 2nd section to make them do all the same animation
     function callimg2(scrollPos){
 
         sec2img.forEach(img => {
@@ -83,7 +78,7 @@ window.addEventListener('load', event => {
         })
     }
 
-    //scrolling event which makes the pictures appear on the 2nd section cutting off some of the words in the quote
+    // scrolling event which makes the pictures appear on the 2nd section cutting off some of the words in the quote
     document.addEventListener("scroll", function(e){
         lastScrollPosition = window.screenY;
         console.log(window.screenY);
@@ -100,7 +95,7 @@ window.addEventListener('load', event => {
 
     // *********** section 3 *********** //
 
-    //arrays for the third section information
+    // arrays for the third section information
     let scienceArray = ["Rhincodon typus", "Aptenodytes forsteri", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
     let civiArray = ["Whale Shark", "Emperor Penguin", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
     let animalinfoArray = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -123,7 +118,7 @@ window.addEventListener('load', event => {
     rightmid[currImg%mainpic.length].style.zIndex = "2";
     rightbot[currImg%mainpic.length].style.zIndex = "2";
 
-    //flicks through the section 3 image gallery via the next button
+    // flicks through the section 3 image gallery via the next button
     rightarrow.addEventListener("click", () => {
 
         // moves the image to the right so its hidden
@@ -138,7 +133,7 @@ window.addEventListener('load', event => {
         righttop[currImg%mainpic.length].style.zIndex = "1";
         rightmid[currImg%mainpic.length].style.zIndex = "1";
         rightbot[currImg%mainpic.length].style.zIndex = "1";
-        //ups the array number
+        // ups the array number
         currImg++;
 
         // looks for transtions then puts the next image up top
@@ -163,7 +158,7 @@ window.addEventListener('load', event => {
                 rightmid[currImg%mainpic.length].style.zIndex = "2";
                 rightbot[currImg%mainpic.length].style.zIndex = "2";
                 
-                //moves through the arrays above when clicking the button
+                // moves through the arrays above when clicking the button
                 science.innerHTML = scienceArray[currImg%mainpic.length];
                 civi.innerHTML = civiArray[currImg%mainpic.length];
                 // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
@@ -172,7 +167,7 @@ window.addEventListener('load', event => {
         })
     });
     
-    //flicks through the section 3 image gallery via the prev button
+    // flicks through the section 3 image gallery via the prev button
     leftarrow.addEventListener("click", () => {
         
         // moves the image to the right so its hidden
@@ -212,7 +207,7 @@ window.addEventListener('load', event => {
                 rightmid[currImg%mainpic.length].style.zIndex = "2";
                 rightbot[currImg%mainpic.length].style.zIndex = "2";
                 
-                //moves through the arrays above when clicking the button
+                // moves through the arrays above when clicking the button
                 science.innerHTML = scienceArray[currImg%mainpic.length];
                 civi.innerHTML = civiArray[currImg%mainpic.length];
                 // animalinfo.innerHTML = animalinfoArray[currImg%mainpic.length];
@@ -225,13 +220,13 @@ window.addEventListener('load', event => {
 
     // *********** Asyncs *********** //
 
-    //Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
+    // Pexels Apikey: 563492ad6f91700001000001b85c341905654b2a900ab901fecb6997
     const API_KEY = "563492ad6f91700001000001b85c341905654b2a900ab901fecb6997";
 
-    //search query for the pexels api
+    // search query for the pexels api
     const imageUrl = "https://api.pexels.com/v1/search?query=";
 
-    //the items that are used for the search qurey
+    // the items that are used for the search qurey
     const penguin = {url:"Emperor%20penguin&per_page=5", animal: "penguin"};
     const orca = {url:"killer%20whale&per_page=5", animal: "orca"};
     const owl = {url:"barn%20owl&per_page=5", animal: "owl"};
@@ -246,7 +241,7 @@ window.addEventListener('load', event => {
         
     queries.forEach((e,index) => {
         (async () => {
-            //gets all the imgs via the search quries
+            // gets all the imgs via the search quries
             let res = await fetch(imageUrl + e.url, {
                 headers: {
                     Authorization: API_KEY
@@ -254,7 +249,7 @@ window.addEventListener('load', event => {
             });
 
             let data = await res.json();
-            //a vairable that grabs the current index of the selector array
+            // a vairable that grabs the current index of the selector array
             let currSelectors = selectors[index];
 
             // inputs each photo into the imgs to display
@@ -290,9 +285,34 @@ window.addEventListener('load', event => {
         
     })();
 
+
     // *********** animation *********** //
 
-    //animation for the header menu
+    // is for controlling the circumstances of the interesection observer
+    const settings = {
+        root: null,
+        threshold: 0, 
+        rootMargin: "-345px"
+    };
+
+    // makes a new intersection observer and creates a callback function and a target to observe
+    const io = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // is checking if the target has reach the intersection
+            if (entry.isIntersecting) {
+                // adds a class that allows for animations to happen
+                entry.target.classList.add("appear")
+                observer.unobserve(entry.target);
+            }
+        })
+    }, settings)
+
+    // checks for when each section hits the observer
+    sections.forEach(sec3 => {
+        io.observe(sec3);
+    });
+
+    // animation for the header menu
     normMenu.forEach((e) => {
         e.innerHTML = e.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
         
