@@ -51,7 +51,7 @@ h1 {
 .fadeLeft{
   opacity: 0;
   transform: translateX(50%);
-  transition: opacity 3s ease-in, transform 5s ease-in;
+  transition: opacity 3s ease-in, transform 10s ease-in;
 }
 .fadeLeft{
   transform: translateX(0);
