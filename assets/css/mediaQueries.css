@@ -15,13 +15,13 @@
         height: 50rem;
     }
     hr{
-        width: 25rem;
+        width: 80%;
     }
     .titleContainer{
         position: relative;
     }
-    .title{
-        font-size: 2rem;
+    .titleL, .titleR{
+        font-size: 2.75rem;
         padding: 0;
     }
     .video-container{
