@@ -42,8 +42,8 @@ window.addEventListener('load', event => {
 
     // selector for the 5th section
     let gallery = document.querySelectorAll(".randomgallery");
-    let imgGallery = document.querySelectorAll(".randomgallcontainer img");
-    console.log(imgGallery);
+    let imgGallery = document.querySelectorAll(".randomgallcontainer");
+    console.log(gallery);
 
 
     // *********** menu/navbar *********** //
@@ -83,7 +83,6 @@ window.addEventListener('load', event => {
     // scrolling event which makes the pictures appear on the 2nd section cutting off some of the words in the quote
     document.addEventListener("scroll", function(e){
         lastScrollPosition = window.screenY;
-        console.log(window.screenY);
         if (!ticking){
             window.requestAnimationFrame(function(){
                 callimg2(lastScrollPosition);    
@@ -148,7 +147,6 @@ window.addEventListener('load', event => {
             if(currImg === 7){
                 currImg = 1;
             }
-            console.log(currImg, mainpic.length, currImg-1%mainpic.length)
 
             // looks for transtions then puts the next image on top
             mainpic[currImg-1%mainpic.length].addEventListener('transitionend', (event) =>{
@@ -188,7 +186,6 @@ window.addEventListener('load', event => {
     
     // flicks through the section 3 image gallery via the prev button
     leftarrow.addEventListener("click", () => {
-
         //lowers the array number
         currImg--;
 
@@ -196,24 +193,23 @@ window.addEventListener('load', event => {
             currImg = 5;
         }
 
-        // moves the image to the right so its hidden
+        // moves the image to the right so its hidden to make it look like it came from the right
         mainpic[currImg%mainpic.length].style.right = "100%";
         leftpic[currImg%mainpic.length].style.right = "100%";
         righttop[currImg%mainpic.length].style.right = "100%";
         rightmid[currImg%mainpic.length].style.right = "100%";
         rightbot[currImg%mainpic.length].style.right = "100%";
 
-        // sets zindex to 1 so the next photo is underneath
-        mainpic[currImg%mainpic.length].style.zIndex = "1";
-        leftpic[currImg%mainpic.length].style.zIndex = "1";
-        righttop[currImg%mainpic.length].style.zIndex = "1";
-        rightmid[currImg%mainpic.length].style.zIndex = "1";
-        rightbot[currImg%mainpic.length].style.zIndex = "1";
+        // setting the zindex of the last img back to 1 so it is below the current img but above the image before it
+        mainpic[currImg+1%mainpic.length].style.zIndex = "1";
+        leftpic[currImg+1%mainpic.length].style.zIndex = "1";
+        righttop[currImg+1%mainpic.length].style.zIndex = "1";
+        rightmid[currImg+1%mainpic.length].style.zIndex = "1";
+        rightbot[currImg+1%mainpic.length].style.zIndex = "1";
 
-        console.log(currImg, mainpic.length, currImg+1%mainpic.length)
         // looks for transtions then puts the next image on top
-        mainpic[currImg+1%mainpic.length].addEventListener('transitionend', (event) =>{
-            if(event.target.style.right != "100%" /*&& event.target.style.right != "0px"*/){
+        mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
+            if(event.target.style.right != "0" && event.target.style.right != "0px"){
 
                 // putting the current img at the top of the stack
                 mainpic[currImg%mainpic.length].style.zIndex = "2";
@@ -222,14 +218,14 @@ window.addEventListener('load', event => {
                 rightmid[currImg%mainpic.length].style.zIndex = "2";
                 rightbot[currImg%mainpic.length].style.zIndex = "2";
 
-                // setting the right of the last img back to 0
+                // setting the right of the current img back to 0
                 mainpic[currImg%mainpic.length].style.right = "0";
                 leftpic[currImg%mainpic.length].style.right = "0";
                 righttop[currImg%mainpic.length].style.right = "0";
                 rightmid[currImg%mainpic.length].style.right = "0";
                 rightbot[currImg%mainpic.length].style.right = "0";
-
-                // setting the zindex of the last img back to 0
+                
+                // setting the zindex of the last img back to 0 so it is below the current img
                 mainpic[currImg+1%mainpic.length].style.zIndex = "0";
                 leftpic[currImg+1%mainpic.length].style.zIndex = "0";
                 righttop[currImg+1%mainpic.length].style.zIndex = "0";
@@ -243,7 +239,6 @@ window.addEventListener('load', event => {
                 locationname.innerHTML = locationnameArray[currImg%mainpic.length];
             }
         })
-        
     });
 
 
@@ -330,28 +325,33 @@ window.addEventListener('load', event => {
             // is checking if the target has reach the intersection
             if (entry.isIntersecting) {
                 // adds a class that allows for animations to happen
-                entry.target.classList.add("appear")
+                entry.target.classList.add("fadeInDown")
                 observer.unobserve(entry.target);
             }
         })
     }, settings)
-
+    
+    const leftSettings = {
+        root: null,
+        threshold: 1, 
+        rootMargin: "-345px"
+    }
     // makes the random gallery come from the left
     const left = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add("moverLeft");
+                entry.target.classList.add("moveLeft")
                 observer.unobserve(entry.target);
             }
         })
-    }, settings)
+    }, leftSettings)
 
     // checks for when each section hits the observer
     sections.forEach(sec3 => {
         io.observe(sec3);
     });
 
-    imgGallery.forEach(img => {
+    gallery.forEach(img => {
         left.observe(img);
     })
 

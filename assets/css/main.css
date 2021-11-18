@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
 
 /********** global varibles ***********/
-body {
+body, html {
   background: #f2f2f2;
   margin: 0;
+  width: 100%;
+  padding: 0;
   font-family: "Zen Kurenaido", sans-serif;
   overflow-x: hidden;
 }
@@ -15,15 +17,20 @@ section {
   padding-left: 2rem;
   padding-right: 2rem;
   opacity: 0;
-  transition: opacity 1.6s ease-in;
+  /* background-repeat: no-repeat;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; */
+  transition: opacity 1s ease-in;
 }
-.appear{
+.fadeInDown {
   opacity: 1;
+  /* -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown; */
 }
-a:link {
+a:link, a:visited {
   text-decoration: none;
-}
-a:visited {
   color: black;
 }
 ul {
@@ -51,7 +58,7 @@ h1 {
   position: fixed;
   width: 100%;
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 3;
 }
 .logo {
   text-decoration: none;
@@ -356,15 +363,18 @@ h1 {
   padding-top: 3.125rem;
   padding-bottom: 3rem;
 }
-.randomgallcontainer {
+.randomgallcontainer{
   display: flex;
-  overflow: hidden;
-  left: 100%;
-  position: relative;
-  transition: left 3s;
+}
+.randomgallery{
+  -webkit-animation-duration:1s;
+  animation-duration:1s;
+  -webkit-animation-fill-mode:both;
+  animation-fill-mode:both
 }
 .moveLeft{
-  left: 0;
+  -webkit-animation-name:fadeInLeft;
+  animation-name:fadeInLeft
 }
 .galltext {
   align-items: center;
