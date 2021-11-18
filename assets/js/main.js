@@ -200,13 +200,6 @@ window.addEventListener('load', event => {
         rightmid[currImg%mainpic.length].style.right = "100%";
         rightbot[currImg%mainpic.length].style.right = "100%";
 
-        // setting the zindex of the last img back to 1 so it is below the current img but above the image before it
-        mainpic[currImg+1%mainpic.length].style.zIndex = "1";
-        leftpic[currImg+1%mainpic.length].style.zIndex = "1";
-        righttop[currImg+1%mainpic.length].style.zIndex = "1";
-        rightmid[currImg+1%mainpic.length].style.zIndex = "1";
-        rightbot[currImg+1%mainpic.length].style.zIndex = "1";
-
         // looks for transtions then puts the next image on top
         mainpic[currImg%mainpic.length].addEventListener('transitionend', (event) =>{
             if(event.target.style.right != "0" && event.target.style.right != "0px"){
