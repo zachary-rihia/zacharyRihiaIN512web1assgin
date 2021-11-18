@@ -16,18 +16,6 @@ section {
   padding-top: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  opacity: 0;
-  /* background-repeat: no-repeat;
-  -webkit-animation-duration: 10s;
-  animation-duration: 10s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; */
-  transition: opacity 1s ease-in;
-}
-.fadeInDown {
-  opacity: 1;
-  /* -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown; */
 }
 a:link, a:visited {
   text-decoration: none;
@@ -47,6 +35,26 @@ h1 {
   font-size: 2.5rem;
   line-height: 1.3rem;
   margin-top: 0.2rem;
+}
+.fade, .fadeLate {
+  opacity: 0;
+}
+.fade{
+  transition: opacity 1s ease-in;
+}
+.fadeLate{
+  transition: opacity 4s ease-in;
+}
+.fadeLeft{
+  transform: translateX(50%);
+  transition: opacity 3s ease-in, transform 2s ease-in;
+}
+.fadeLeft.appear{
+  transform: translateX(0);
+  opacity: 1;
+}
+.appear {
+  opacity: 1;
 }
 
 
@@ -156,9 +164,9 @@ h1 {
     margin: 0;
     line-height: 50px;
     text-align: center;
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+    -moz-transform: translateX(75%);
+    -webkit-transform: translateX(75%);
+    transform: translateX(75%);
 }
 .titleL {
   -moz-animation: scroll-left 2s linear infinite;
@@ -224,9 +232,6 @@ h1 {
 .sec-2-img {
   top: 100%;
   transition: top 15s ease-in;
-  opacity: 0;
-  transition: opacity 2s;
-  border-radius: 100%;
 }
 .sec-2-text .letter {
   display: inline-block;
@@ -239,7 +244,6 @@ h1 {
   padding: 0;
   margin: 0;
 }
-
 /* made it into a grid for easier placement of content*/
 .sec-3 {
   background-color: #eee;
@@ -367,14 +371,8 @@ h1 {
   display: flex;
 }
 .randomgallery{
-  -webkit-animation-duration:1s;
-  animation-duration:1s;
-  -webkit-animation-fill-mode:both;
-  animation-fill-mode:both
-}
-.moveLeft{
-  -webkit-animation-name:fadeInLeft;
-  animation-name:fadeInLeft
+  opacity: 0;
+  transition: opacity 3s ease-in;
 }
 .galltext {
   align-items: center;

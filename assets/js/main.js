@@ -10,7 +10,9 @@ window.addEventListener('load', event => {
     let menu =  document.querySelector(".menu");
     let menuul = document.querySelector(".menu ul");
     let normMenu = document.querySelectorAll(".normalMenu");
-    let sections = document.querySelectorAll("section");
+    let faders = document.querySelectorAll(".fade");
+    let lateFade = document.querySelectorAll(".fadeLate");
+    let leftFade = document.querySelectorAll(".fadeLeft");
 
     // 2nd section selectors
     let sec2ani = document.querySelectorAll(".letter, .sec-2-img");
@@ -43,7 +45,6 @@ window.addEventListener('load', event => {
     // selector for the 5th section
     let gallery = document.querySelectorAll(".randomgallery");
     let imgGallery = document.querySelectorAll(".randomgallcontainer");
-    console.log(gallery);
 
 
     // *********** menu/navbar *********** //
@@ -63,35 +64,6 @@ window.addEventListener('load', event => {
         menu.style.top = "100%";
         menuul.style.opacity = 0;
     })
-
-
-    // *********** section 2 *********** //
-
-    let lastScrollPosition = 0;
-    let ticking = false;
-
-    // selects all the imgs of the 2nd section to make them do all the same animation
-    function callimg2(scrollPos){
-
-        sec2img.forEach(img => {
-            img.style.top = 0;
-            img.style.opacity = 1;
-            img.style.borderRadius = 0;
-        })
-    }
-
-    // scrolling event which makes the pictures appear on the 2nd section cutting off some of the words in the quote
-    document.addEventListener("scroll", function(e){
-        lastScrollPosition = window.screenY;
-        if (!ticking){
-            window.requestAnimationFrame(function(){
-                callimg2(lastScrollPosition);    
-                ticking = false;
-            })
-
-            ticking = true;
-        }
-    });
 
 
     // *********** section 3 *********** //
@@ -309,7 +281,7 @@ window.addEventListener('load', event => {
     const settings = {
         root: null,
         threshold: 0, 
-        rootMargin: "-345px"
+        rootMargin: " 0px 0px -200px 0px"
     };
 
     // makes a new intersection observer and creates a callback function and a target to observe
@@ -318,35 +290,28 @@ window.addEventListener('load', event => {
             // is checking if the target has reach the intersection
             if (entry.isIntersecting) {
                 // adds a class that allows for animations to happen
-                entry.target.classList.add("fadeInDown")
+                entry.target.classList.add("appear")
                 observer.unobserve(entry.target);
             }
         })
     }, settings)
-    
-    const leftSettings = {
-        root: null,
-        threshold: 1, 
-        rootMargin: "-345px"
-    }
-    // makes the random gallery come from the left
-    const left = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("moveLeft")
-                observer.unobserve(entry.target);
-            }
-        })
-    }, leftSettings)
 
     // checks for when each section hits the observer
-    sections.forEach(sec3 => {
-        io.observe(sec3);
+    faders.forEach(fader => {
+        io.observe(fader);
+    });
+    
+    lateFade.forEach(fadeLate => {
+        io.observe(fadeLate);
     });
 
-    gallery.forEach(img => {
-        left.observe(img);
+    leftFade.forEach(fadeLeft => {
+        io.observe(fadeLeft);
     })
+
+    gallery.forEach(img => {
+        io.observe(img);
+    });
 
     // animation for the header menu
     normMenu.forEach((e) => {
