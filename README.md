@@ -1,14 +1,18 @@
 # zacharyRihiaIN512web1assgin
-// in the terminal type 
-node install
-npm install express --save
-// after install express you can startup the local host by typing in the terminal index.js
+**** to set up ****
+**** open github terminal, type - ****
 
-// installing of heroku
-dowload the heroku CLI
-https://devcenter.heroku.com/articles/heroku-cli
-npm install -g heroku
-heroku login
+```console
+$ npm install express --save
+$ node index.js
+```
+**** after install express you can startup the local host by typing in the terminal index.js ****
 
-// the live server
+on the web broswer go to localhost:3000
+
+
+**** the live server ****
 https://macabre-broomstick-86010.herokuapp.com/
+
+whenever you push the lastest main to github and it will automaticly update
+to edit work within the relvant views page, veiws contains html skeleton with layout and index containing the body
