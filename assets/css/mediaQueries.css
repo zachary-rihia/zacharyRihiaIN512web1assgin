@@ -87,4 +87,13 @@
     .randomgallcontainer img:not(:nth-child(3)){
         display: none;
     }
+
+    /****** footer section ******/
+
+    .containerfooter{
+        width: 75%;
+    }
+    .circle{
+        font-size: .75rem;
+    }
 }
