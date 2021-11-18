@@ -15,14 +15,11 @@ window.addEventListener('load', event => {
     let leftFade = document.querySelectorAll(".fadeLeft");
 
     // 2nd section selectors
-    let sec2ani = document.querySelectorAll(".letter, .sec-2-img");
-    let sec2img = document.querySelectorAll(".sec-2-img");
     let imgsec2 = document.querySelectorAll(".img-wrap2");
 
     // 3rd section selectors
     let science = document.querySelector(".scientific-name-block li");
     let civi = document.querySelector(".civi-name li");
-    let animalinfo = document.querySelector(".animal-fact li");
     let locationname = document.querySelector(".location-name li");
     let mainpic = document.querySelectorAll(".mainpic img");
     let leftpic = document.querySelectorAll(".leftpic img");
@@ -39,12 +36,8 @@ window.addEventListener('load', event => {
     let tigger = document.querySelectorAll(".tiger");
     let seaturt = document.querySelectorAll(".turtle");
 
-    // selector for the promo animation
-    let promo = document.querySelectorAll(".row");
-
     // selector for the 5th section
     let gallery = document.querySelectorAll(".randomgallery");
-    let imgGallery = document.querySelectorAll(".randomgallcontainer");
 
 
     // *********** menu/navbar *********** //
@@ -71,12 +64,6 @@ window.addEventListener('load', event => {
     // arrays for the third section information
     let scienceArray = ["Rhincodon typus", "Aptenodytes forsteri", "Orcinus orca", "Tyto alba", "Panthera tigris", "Chelonia mydas"];
     let civiArray = ["Whale Shark", "Emperor Penguin", "Orca/Killer Whale", "Barn Owl", "Tiger", "Sea Turtle"];
-    let animalinfoArray = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."];
     let locationnameArray = ["Mesoamerican Reef, Coastal East Africa, Gulf of California, Coral Triangle", "Antartica",
         "Antarctica, Norway, and Alaska", "North America, South America, Europe, Africa",
         "China, India, and Southwest Asia to the Indonesian island of Sumatra", "Atlantic, Pacific, and Indian Oceans"]
@@ -277,7 +264,7 @@ window.addEventListener('load', event => {
 
     // *********** animation *********** //
 
-    // is for controlling the circumstances of the interesection observer
+    // is for controlling the circumstances of the intersection observer
     const settings = {
         root: null,
         threshold: 0, 
@@ -309,9 +296,9 @@ window.addEventListener('load', event => {
         io.observe(fadeLeft);
     })
 
-    gallery.forEach(img => {
-        io.observe(img);
-    });
+    gallery.forEach(gall => {
+        io.observe(gall);
+    })
 
     // animation for the header menu
     normMenu.forEach((e) => {

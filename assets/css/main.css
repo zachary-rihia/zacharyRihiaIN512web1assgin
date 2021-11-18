@@ -36,24 +36,29 @@ h1 {
   line-height: 1.3rem;
   margin-top: 0.2rem;
 }
+/* for the fade in animations */
 .fade, .fadeLate {
+  margin-top: 30px;
   opacity: 0;
 }
 .fade{
-  transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in, margin 1.25s ease-in;
 }
 .fadeLate{
-  transition: opacity 4s ease-in;
+  transition: opacity 5s ease-in, margin 2.75s ease-in;
+}
+/* moving the random gallery imgs left*/
+.fadeLeft{
+  opacity: 0;
+  transform: translateX(50%);
+  transition: opacity 3s ease-in, transform 5s ease-in;
 }
 .fadeLeft{
-  transform: translateX(50%);
-  transition: opacity 3s ease-in, transform 2s ease-in;
-}
-.fadeLeft.appear{
   transform: translateX(0);
-  opacity: 1;
 }
+/* makes everything visible */
 .appear {
+  margin-top: 0;
   opacity: 1;
 }
 
@@ -371,7 +376,7 @@ h1 {
   display: flex;
 }
 .randomgallery{
-  opacity: 0;
+  opacity: 1;
   transition: opacity 3s ease-in;
 }
 .galltext {
